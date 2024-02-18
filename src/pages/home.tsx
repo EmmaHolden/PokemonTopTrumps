@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Card from "../card";
-import { starterPokemon } from "../pokemonList";
+import { Pokemon, starterPokemon, allPokemon } from "../pokemonList";
 
 
 const Home = () => {
     const [starterChosen, setStarterChosen] = useState(false);
+    const pokemon: Pokemon = allPokemon[56];
     
     function handleSubmit(): void {
         setStarterChosen(true)
@@ -12,7 +13,7 @@ const Home = () => {
 
     return ( 
         <div className = "cardsContainer">
-            <p>You have chosen your pokeys</p>
+            <Card pokemon = {pokemon}/>
         </div>
      );
 }
