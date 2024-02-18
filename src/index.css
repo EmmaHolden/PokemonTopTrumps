@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+:root {
+  --blue: #0075BE;
+  --yellow: #FFCC00;
+  --darkBlue: #3c5aa6;   
+  --gold: #c7a008;
+  --purple: #242155;
+  --red: #d53141;
+}
+
+button {
+  color: var(--green);
+}
+
+button.button-stat {
+  background-color: var(--gold)
+}
+
+button:disabled {
+  background-color:gray;
+  opacity: 0.5;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardButtonGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.starterCardContainer {
+  background-color: var(--blue);
+  color: var(--yellow);
+  padding: 20px;
+}
+
