@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Card from "./card";
-import { starterPokemon } from "./pokemonList";
+import Card from "../card";
+import { starterPokemon } from "../pokemonList";
 
 
 const Home = () => {

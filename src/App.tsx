@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css"
-import Home from "./home";
-import ChooseStarter from "./choose-starter";
-import { useState } from "react";
+import Home from "./pages/home";
+import ChooseStarter from "./pages/choose-starter";
+import { useContext, useState } from "react";
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
             <Routes>
                 <Route
                     path='/'
-                    element={starterChosen ? <Home/> : <ChooseStarter />}/>  
+                    element={starterChosen ? <Home/> : <ChooseStarter starterChosen= {starterChosen} setStarterChosen={setStarterChosen}/>}/>  
             </Routes>
         </BrowserRouter>
 
