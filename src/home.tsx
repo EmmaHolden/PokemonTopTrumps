@@ -12,19 +12,7 @@ const Home = () => {
 
     return ( 
         <div className = "cardsContainer">
-            {
-            !starterChosen ?
-            starterPokemon.map((pokemon) => {
-                return (
-                    <div className = "starterCardContainer">
-                        <Card pokemon = {pokemon} isDisabled/>
-                        <button onClick={handleSubmit}>Choose me</button>
-                    </div>
-                )
-            })
-            :
             <p>You have chosen your pokeys</p>
-        }
         </div>
      );
 }
