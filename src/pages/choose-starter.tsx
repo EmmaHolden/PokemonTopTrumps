@@ -8,13 +8,17 @@ interface ChooseStarterProps {
 }
 
 const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) => {
+
+    const handleSubmit = () => {
+        setStarterChosen(true)
+    }
     
     return ( 
         <div className = "cardsContainer">
             {starterPokemon.map((pokemon) => {
                 return (
-                    <div>
-                        <Card starterChosen = {starterChosen} setStarterChosen = {setStarterChosen} pokemon = {pokemon} isDisabled/>
+                    <div onClick = {handleSubmit}>
+                        <Card pokemon = {pokemon} isDisabled/>
                     </div>
                 )
             })
