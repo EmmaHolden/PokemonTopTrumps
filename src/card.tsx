@@ -24,6 +24,7 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
         'bug-pokemon' : pokemon.element === 'bug',
         'dragon-pokemon' : pokemon.element === 'dragon',
         'electric-pokemon' : pokemon.element === 'electric',
+        'fairy-pokemon' : pokemon.element === 'fairy',
         'fighting-pokemon' : pokemon.element === 'fighting',
         'fire-pokemon' : pokemon.element === 'fire',
         'ghost-pokemon' : pokemon.element === 'ghost',
