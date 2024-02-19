@@ -1,15 +1,5 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 :root {
   --blue: #0075BE;
@@ -18,39 +8,63 @@ code {
   --gold: #c7a008;
   --purple: #242155;
   --red: #d53141;
+  --green: #8bc57b;
+}
+
+.sprite {
+  display: flex;
+  width: 15vw;
+  padding: 3%;
+  background-color: var(--gold);
 }
 
 button {
   color: var(--green);
+  font-size: large;
 }
 
 button.button-stat {
-  background-color: var(--gold)
+  background-color: var(--blue);
+  border: solid var(--blue);
+  text-align: left;
+  border-bottom: solid black;
 }
 
 button:disabled {
-  background-color:gray;
-  opacity: 0.5;
+  opacity: 0.7;
+}
+
+.clicked {
+  color: black;
+  background-color: var(--green);
+  border: solid var(--blue);
+  text-align: left;
+  border-bottom: solid black;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  background-color: var(--blue);
+  padding: 3%;
+  width: 16vw;
+  border: solid 0.6vw var(--gold);
+  border-radius: 8px;
 }
 
 .cardButtonGroup {
   display: flex;
   flex-direction: column;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .cardsContainer {
   display: flex;
   justify-content: space-evenly;
-}
-
-.starterCardContainer {
-  background-color: var(--blue);
-  color: var(--yellow);
-  padding: 20px;
+  align-content: center;
+  align-items: center;
+  background-color: var(--darkBlue);
+  height: 100vh;
 }
 
