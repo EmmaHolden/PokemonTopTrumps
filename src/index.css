@@ -62,20 +62,20 @@ button:disabled {
   transition: 0.3s;
 }
 
-.bug-pokemon {background-color: orange;}
+.bug-pokemon {background-color:orange;}
 .dragon-pokemon {background-color:aquamarine;}
-.electric-pokemon {background-color: yellow;}
+.electric-pokemon {background-color:yellow;}
 .fighting-pokemon {background-color:burlywood;}
-.fire-pokemon {background-color: red;}
+.fire-pokemon {background-color:red;}
 .ghost-pokemon {background-color:azure;}
-.grass-pokemon {background-color: green;}
+.grass-pokemon {background-color:green;}
 .ground-pokemon {background-color:darkgreen;}
-.ice-pokemon {background-color: lightblue};
-.normal-pokemon {background-color: pink;}
-.poison-pokemon {background-color: purple;}
+.ice-pokemon {background-color:lightblue;}
+.normal-pokemon {background-color:pink;}
+.poison-pokemon {background-color:purple;}
 .psychic-pokemon {background-color:darkviolet;}
-.rock-pokemon {background-color: darkgray;}
-.water-pokemon {background-color: blue;}
+.rock-pokemon {background-color:darkgray;}
+.water-pokemon {background-color:blue;}
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(9,9,9,9.9);
