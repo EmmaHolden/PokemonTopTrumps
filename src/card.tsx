@@ -40,7 +40,7 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
 
     return ( 
         <div className = {classes}>
-            <h2>{pokemon.name}</h2>
+            <h2 className = "name">{pokemon.name}</h2>
             <img className="sprite" src={`../images/${pokemon.id}.png`}></img>
             <div className = "cardButtonGroup">
                 <button id = 'hp' disabled={isDisabled ? true : clicked.includes('hp')} className = {clicked.includes('hp') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>HP: {pokemon.hp}</button>

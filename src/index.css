@@ -1,7 +1,10 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
+  font-stretch: ultra-condensed;
 }
 :root {
+  --cardEdge: #ffe78f;
+  --starterBackground: #393c41;
   --blue: #0075BE;
   --yellow: #FFCC00;
   --darkBlue: #3c5aa6;   
@@ -9,6 +12,12 @@ body {
   --purple: #242155;
   --red: #d53141;
   --green: #8bc57b;
+}
+
+.name {
+  text-align: center;
+  font-weight: 700px;
+  padding: 0px;
 }
 
 .sprite {
@@ -54,74 +63,87 @@ button:disabled {
   flex-direction: column;
   padding: 4%;
   width: 16vw;
-  border: solid 0.6vw var(--gold);
+  border: 10px solid gold;
+  border: solid 0.6vw var(--cardEdge);
+  outline: 0.1vw solid var(--gold);
+  outline-offset: -0.6vw;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 }
 
 .bug-pokemon {
-  background-color:orange;
+  background-image: linear-gradient(to bottom right, #ff9442,#e5b38b,#dc9965,#e6b793,#ebc66f,#e1c27a);
   .sprite {background-image: url('../public/images/bug-background.jpg');}
 }
 
-.dragon-pokemon {background-color:aquamarine;
+.dragon-pokemon {
+  background-image: linear-gradient(to bottom right, #b3cacc,#aac8ca,#a3c0c2,#9bc2c5,#a1d0d4,#94b5b8);
   .sprite {background-image: url('../public/images/dragon-background.jpg');}
 }
 
-.electric-pokemon {background-color:yellow;
+.electric-pokemon {
+  background-image: linear-gradient(to bottom right, #ffffa4,#fff870,#fff200,#fff870,#ffffa4,#fff870);
   .sprite {background-image: url('../public/images/electric-background.jpg');}
 }
 
-.fairy-pokemon {background-color:brown;
+.fairy-pokemon {
+  background-image: linear-gradient(to bottom right, #ffaa80,#b3ccff,#ffbf80,#ff99e6, #b3cccc,#c6ffb3);
   .sprite {background-image: url('../public/images/fairy-background.jpg');}
 }
 
-.fighting-pokemon {background-color:burlywood;
+.fighting-pokemon {
+  background-image: linear-gradient(to bottom right, #a97623,#e5c19e,#d4995e,#e3b782,#a1642b,#d99f59);
   .sprite {background-image: url('../public/images/fighting-background.jpg');}
 }
 
 .fire-pokemon {
-  background-color:red;
+  background-image: linear-gradient(to bottom right, #ff928a,#ff978f,#ff756b,#ff594c,#ff756b,#ff978f);
   .sprite {background-image: url('../public/images/fire-background.jpg');}
 }
 
-.ghost-pokemon {background-color:azure;
+.ghost-pokemon {
+  background-image: linear-gradient(to bottom right, #a278de,#9292dd,#8874ec,#a494f5,#9a87de,#c896ee);
   .sprite {background-image: url('../public/images/ghost-background.jpg');}
 }
 
-.grass-pokemon {background-color:green;
+.grass-pokemon {
+  background-image: linear-gradient(to bottom right, #97ee5d,#78cf8b,#4fb665,#319d49,#4fb665,#78cf8b);
   .sprite {background-image: url('../public/images/grass-background.jpg');}
 }
 
-.ground-pokemon {background-color:darkgreen;
+.ground-pokemon {
+  background-image: linear-gradient(to bottom right, #c0aa30,#d9cf78,#d5cc7c, #b7aa30, #d9d978,#c7bb52);
   .sprite {background-image: url('../public/images/ground-background.jpg');}
 }
 
-.ice-pokemon {background-color:lightblue;
+.ice-pokemon {
+  background-image: linear-gradient(to bottom right, #bffffa,#b8fff9,#ccfffb,#bef0f8,#bcf1fb,#dbfffc);
   .sprite {background-image: url('../public/images/ice-background.jpg');}
 }
 
 .normal-pokemon {
-  background-image: repeating-radial-gradient(#D8BFD8, #FFB6C1);
+  background-image: linear-gradient(to bottom right, #d0d0e1,#ceced9,#D8BFD8, #d1ced9, #d0cadd,#ddd0e1);
   .sprite {background-image: url('../public/images/normal-background.jpg');}
 }
 
-.poison-pokemon {background-color:purple;
+.poison-pokemon {
+  background-image: linear-gradient(to bottom right, #c0aa30,#d9cf78,#d5cc7c, #b7aa30, #d9d978,#c7bb52);
   .sprite {background-image: url('../public/images/poison-background.jpg');}
 }
 
-.psychic-pokemon {background-color:darkviolet;
+.psychic-pokemon {
+  background-image: linear-gradient(to bottom right, #feb8ea,#ffc7e9,#fea4e5,#fdb4f6,#ffb8e2,#fc97f2);
   .sprite {background-image: url('../public/images/psychic-background.jpg');}
 }
 
-.rock-pokemon {background-color:darkgray;
+.rock-pokemon {
+  background: linear-gradient(to bottom right, #acb6c8,#c4c9d4,#9d9dbe,#acacc8,#8b8bb1, #bcc7dc);
   .sprite {background-image: url('../public/images/rock-background.jpg');}
 }
 
 .water-pokemon {
-  /* background-color:blue; */
-  --card-glow: hsl(192, 97%,  60%); 
+  background-image: linear-gradient(to bottom right, #97dfe7,#91cee8,#7ce3fd,#36d4fc,#91d7e8,#56b8dc);
   .sprite {background-image: url('../public/images/water-background.jpg');}
 }
 
