@@ -167,23 +167,12 @@ export const allPokemon: Pokemon[] = [
 
 // 1 4 7 25 133
 
-// 10 - bug // 
-// 149 - dragon // 
-// 135 - electric // 
-// 35 - fairy // 
-// 106 - fighting // 
-// 126 - fire //
-// 93 - ghost //
-// 69 - grass // 
-// 104 - ground // 
-// 124 - ice //
-// 40  - normal //
-// 41 - poison
-// 150  - psychic // 
-// 138 - rock // 
-// 86 - water // 
+// 10 - bug  
+// 150  - psychic 
 
-export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 1 || pokemon.id === 4 || pokemon.id === 7 || pokemon.id === 25 || pokemon.id === 133 )
+
+
+export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 1 || pokemon.id === 4 || pokemon.id === 7 || pokemon.id === 133 || pokemon.id === 25 )
 
 export const palletPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 56 || pokemon.id === 29 || pokemon.id === 32)
 
