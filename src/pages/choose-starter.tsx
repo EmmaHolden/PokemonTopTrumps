@@ -10,12 +10,28 @@ interface ChooseStarterProps {
 
 const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) => {
 
-    const [topItems, setTopItems] = useState([allPokemon[0], allPokemon[1], allPokemon[2]])
-    const [currentIndex, setCurrentIndex] = useState(3)
+    const [currentIndex, setCurrentIndex] = useState(0)
     let currentPokemon = allPokemon[currentIndex]
 
-    const increaseIndex = () => {
-        if (currentIndex + 1 === allPokemon.length){
+    const handlePrevious = () => {
+        console.log("PRESSED PREV")
+        console.log(`${currentIndex} - ${currentIndex + 1} - ${currentIndex + 2}`)
+        console.log(`${currentIndex % 151} - ${(currentIndex + 1) % 151} - ${(currentIndex + 2) % 151}`)
+        console.log("BREAK")
+        if (currentIndex === 0){
+            setCurrentIndex(allPokemon.length - 1)
+        } else {
+            let newIndex = currentIndex
+            newIndex -= 1
+            setCurrentIndex(newIndex)
+        }
+    }
+    const handleNext = () => {
+        console.log("PRESSED NEXT")
+        console.log(`${currentIndex} - ${currentIndex + 1} - ${currentIndex + 2}`)
+        console.log(`${currentIndex % 151} - ${(currentIndex + 1) % 151} - ${(currentIndex + 2) % 151}`)
+        console.log("BREAK")
+        if (currentIndex === allPokemon.length){
             setCurrentIndex(0)
         } else {
             let newIndex = currentIndex
@@ -24,24 +40,17 @@ const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) =>
         }
     }
 
-    const handleNext = () => {
-        increaseIndex();
-        let newItems = [...topItems]
-        newItems.push(allPokemon[currentIndex])
-        newItems.shift()
-        setTopItems(newItems)
-    }
-
     const handleSubmit = () => {
         setStarterChosen(true)
     }
     
     return ( 
         <div className = "cardsContainer">
+                    <button onClick = {handlePrevious}>{"<"}</button>
                     <div className = "topCards" onClick = {handleSubmit}>
-                        <Card pokemon = {topItems[0]} isDisabled/>
-                        <Card pokemon = {topItems[1]} isDisabled/>
-                        <Card pokemon = {topItems[2]} isDisabled/>
+                        <Card pokemon = {allPokemon[currentIndex % 151]} isDisabled/>
+                        <Card pokemon = {allPokemon[(currentIndex + 1) % 151]} isDisabled/>
+                        <Card pokemon = {allPokemon[(currentIndex + 2) % 151]} isDisabled/>
 
                     </div>
                     <button onClick = {handleNext}>{">"}</button>
