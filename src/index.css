@@ -1,9 +1,12 @@
 body {
   font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
-  font-stretch: ultra-condensed;
   background-color: var(--starterBackground)
 }
 
+@font-face {
+  font-family: 'BreeSerif-Regular';
+  src: local('BreeSerif-Regular'), url('./fonts/BreeSerif-Regular.ttf') format('truetype');
+}
 
 :root {
   --cardEdge: #ffe78f;
@@ -25,16 +28,20 @@ body {
 .titleImage {
   height: 18vh;
 }
+
 .name {
+  font-family: 'BreeSerif-Regular';
   text-align: center;
-  font-weight: 700px;
+  letter-spacing: 3px;
   padding: 0px;
+  margin: 10px;
+  
 }
 
 .sprite {
   display: flex;
   width: 15vw;
-  padding: 3%;
+  border: solid 0.6vw var(--cardEdge);
 }
 
 button {
@@ -78,6 +85,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   padding: 1%;
+  padding-top: 0;
   width: 16vw;
   border: solid 0.6vw var(--cardEdge);
   outline: 0.1vw solid var(--gold);
@@ -87,7 +95,7 @@ button:disabled {
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(9,9,9,9.9);
+  box-shadow: 0 8px 16px 0 rgb(255, 231, 143);
 }
 
 .cardButtonGroup {
@@ -160,6 +168,12 @@ button:disabled {
   .sprite {background-image: url('../public/images/ground-background.jpg');}
 }
 
+.poison-pokemon {
+  background-image: linear-gradient(to bottom right, #9999ff,	#cc99ff,#c09ae4, #c2b8e0, 	#ccc0f2,#baaaee);
+  .sprite {background-image: url('../public/images/poison-background.jpg');}
+}
+
+
 .ice-pokemon {
   background-image: linear-gradient(to bottom right, #bffffa,#b8fff9,#ccfffb,#bef0f8,#bcf1fb,#dbfffc);
   .sprite {background-image: url('../public/images/ice-background.jpg');}
@@ -168,11 +182,6 @@ button:disabled {
 .normal-pokemon {
   background-image: linear-gradient(to bottom right, #d0d0e1,#ceced9,#D8BFD8, #d1ced9, #d0cadd,#ddd0e1);
   .sprite {background-image: url('../public/images/normal-background.jpg');}
-}
-
-.poison-pokemon {
-  background-image: linear-gradient(to bottom right, #c0aa30,#d9cf78,#d5cc7c, #b7aa30, #d9d978,#c7bb52);
-  .sprite {background-image: url('../public/images/poison-background.jpg');}
 }
 
 .psychic-pokemon {
