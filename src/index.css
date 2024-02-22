@@ -1,7 +1,13 @@
 body {
   font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
-  font-stretch: ultra-condensed;
+  background-color: var(--starterBackground)
 }
+
+@font-face {
+  font-family: 'BreeSerif-Regular';
+  src: local('BreeSerif-Regular'), url('./fonts/BreeSerif-Regular.ttf') format('truetype');
+}
+
 :root {
   --cardEdge: #ffe78f;
   --starterBackground: #393c41;
@@ -14,16 +20,28 @@ body {
   --green: #8bc57b;
 }
 
+.titleContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.titleImage {
+  height: 18vh;
+}
+
 .name {
+  font-family: 'BreeSerif-Regular';
   text-align: center;
-  font-weight: 700px;
+  letter-spacing: 3px;
   padding: 0px;
+  margin: 10px;
+  
 }
 
 .sprite {
   display: flex;
   width: 15vw;
-  padding: 3%;
+  border: solid 0.6vw var(--cardEdge);
 }
 
 button {
@@ -50,6 +68,11 @@ button:disabled {
   font-weight: normal;
 }
 
+.arrowButtons {
+  background: transparent;
+  border: none;
+}
+
 .clicked {
   color: black;
   background-color: var(--green);
@@ -61,16 +84,43 @@ button:disabled {
 .card {
   display: flex;
   flex-direction: column;
-  padding: 4%;
+  padding: 1%;
+  padding-top: 0;
   width: 16vw;
-  border: 10px solid gold;
   border: solid 0.6vw var(--cardEdge);
   outline: 0.1vw solid var(--gold);
   outline-offset: -0.6vw;
   border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  margin: 20px;
+  margin: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 8px rgb(255, 231, 143);
+}
+
+.cardButtonGroup {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.topCards {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.starterPageContainer {
+  height: 100%;
+}
+
+.cardsContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1%;
+
 }
 
 .bug-pokemon {
@@ -118,6 +168,12 @@ button:disabled {
   .sprite {background-image: url('../public/images/ground-background.jpg');}
 }
 
+.poison-pokemon {
+  background-image: linear-gradient(to bottom right, #9999ff,	#cc99ff,#c09ae4, #c2b8e0, 	#ccc0f2,#baaaee);
+  .sprite {background-image: url('../public/images/poison-background.jpg');}
+}
+
+
 .ice-pokemon {
   background-image: linear-gradient(to bottom right, #bffffa,#b8fff9,#ccfffb,#bef0f8,#bcf1fb,#dbfffc);
   .sprite {background-image: url('../public/images/ice-background.jpg');}
@@ -126,11 +182,6 @@ button:disabled {
 .normal-pokemon {
   background-image: linear-gradient(to bottom right, #d0d0e1,#ceced9,#D8BFD8, #d1ced9, #d0cadd,#ddd0e1);
   .sprite {background-image: url('../public/images/normal-background.jpg');}
-}
-
-.poison-pokemon {
-  background-image: linear-gradient(to bottom right, #c0aa30,#d9cf78,#d5cc7c, #b7aa30, #d9d978,#c7bb52);
-  .sprite {background-image: url('../public/images/poison-background.jpg');}
 }
 
 .psychic-pokemon {
@@ -148,27 +199,4 @@ button:disabled {
   .sprite {background-image: url('../public/images/water-background.jpg');}
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(9,9,9,9.9);
-}
-
-.cardButtonGroup {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-}
-
-.topCards {
-  display: flex;
-}
-
-.cardsContainer {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  align-items: center;
-  background-color: var(--blue);
-  height: 100vh;
-}
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pokemon } from "./pokemonList";
+import { Pokemon } from "../pokemonList";
 import classNames from 'classnames';
 
 interface CardProps {
@@ -40,8 +40,8 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
 
     return ( 
         <div className = {classes}>
-            <h2 className = "name">{pokemon.name}</h2>
-            <img className="sprite" src={`../images/${pokemon.id}.png`}></img>
+            <h2 className = "name">{pokemon.name.toUpperCase()}</h2>
+            <img className="sprite" src={`../images/${pokemon.id}.png`} alt={`${pokemon.name}`}></img>
             <div className = "cardButtonGroup">
                 <button id = 'hp' disabled={isDisabled ? true : clicked.includes('hp')} className = {clicked.includes('hp') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>HP: {pokemon.hp}</button>
                 <button id = 'attack' disabled={isDisabled ? true : clicked.includes('attack')} className = {clicked.includes('attack') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Attack: {pokemon.attack}</button>
