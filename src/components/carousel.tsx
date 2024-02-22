@@ -34,13 +34,13 @@ const Carousel = ({pokemonArray, isDisabled, onClick}: CarouselProps) => {
 
     return ( 
             <div className = "cardsContainer">
-                        <button className = "arrowButtons" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png"></img></button>
+                        <button className = "arrowButtons" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png" alt="A backward arrow"></img></button>
                         <div className = "topCards" onClick = {onClick}>
                             <Card pokemon = {pokemonArray[currentIndex % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 1) % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 2) % lengthOfArray]} isDisabled={isDisabled}/>
                         </div>
-                        <button className = "arrowButtons" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png"></img></button>
+                        <button className = "arrowButtons" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png" alt="A forward arrow"></img></button>
             </div>
      );
 }

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { starterPokemon, allPokemon } from "../pokemonList";
+import { starterPokemon } from "../pokemonList";
 import Carousel from "../components/carousel";
 
 
@@ -15,7 +14,7 @@ const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) =>
     }
     return (
         <div className = "starterPageContainer">
-            <div className = "titleContainer"><img className = "titleImage" src = "../images/choosePokemonTitle.png"></img></div>
+            <div className = "titleContainer"><img className = "titleImage" src = "../images/choosePokemonTitle.png" alt="A title stating 'Choose your pokemon'"></img></div>
             <Carousel pokemonArray={starterPokemon} isDisabled onClick={handleClick}/>
         </div>
     )
