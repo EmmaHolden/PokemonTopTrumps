@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pokemon } from "./pokemonList";
+import { Pokemon } from "../pokemonList";
 import classNames from 'classnames';
 
 interface CardProps {

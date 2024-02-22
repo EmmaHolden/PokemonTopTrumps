@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "../card";
+import Card from "../components/card";
 import { Pokemon, starterPokemon, allPokemon } from "../pokemonList";
 
 

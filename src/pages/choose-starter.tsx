@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "../card";
+import Card from "../components/card";
 import { starterPokemon, allPokemon } from "../pokemonList";
 
 
@@ -45,15 +45,17 @@ const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) =>
     }
     
     return ( 
-        <div className = "cardsContainer">
-                    <button onClick = {handlePrevious}>{"<"}</button>
-                    <div className = "topCards" onClick = {handleSubmit}>
-                        <Card pokemon = {allPokemon[currentIndex % 151]} isDisabled/>
-                        <Card pokemon = {allPokemon[(currentIndex + 1) % 151]} isDisabled/>
-                        <Card pokemon = {allPokemon[(currentIndex + 2) % 151]} isDisabled/>
-
-                    </div>
-                    <button onClick = {handleNext}>{">"}</button>
+        <div className = "starterPageContainer">
+            <div className = "titleContainer"><img className = "titleImage" src = "../images/choosePokemonTitle.png"></img></div>
+            <div className = "cardsContainer">
+                        <button className = "arrowButtons" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png"></img></button>
+                        <div className = "topCards" onClick = {handleSubmit}>
+                            <Card pokemon = {allPokemon[currentIndex % 151]} isDisabled/>
+                            <Card pokemon = {allPokemon[(currentIndex + 1) % 151]} isDisabled/>
+                            <Card pokemon = {allPokemon[(currentIndex + 2) % 151]} isDisabled/>
+                        </div>
+                        <button className = "arrowButtons" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png"></img></button>
+            </div>
         </div>
      );
 }
