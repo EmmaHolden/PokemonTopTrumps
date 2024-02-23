@@ -20,66 +20,17 @@ body {
   --green: #8bc57b;
 }
 
-.titleContainer {
-  display: flex;
-  justify-content: center;
-}
+/* Image classes */
 
-.titleImage {
+.title-image {
   height: 18vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-.name {
-  font-family: 'BreeSerif-Regular';
-  text-align: center;
-  letter-spacing: 3px;
-  padding: 0px;
-  margin: 10px;
-  
-}
-
-.sprite {
-  display: flex;
-  width: 15vw;
-  border: solid 0.6vw var(--cardEdge);
-}
-
-button {
-  color: black;
-  font-size: large;
-  border-radius: 6px;
-}
-
-button:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button.button-stat {
-  background: transparent;
-  border: none;
-  text-align: left;
-  border-bottom: solid black;
-}
-
-button:disabled {
-  cursor: default;
-  opacity: 0.7;
-  font-weight: normal;
-}
-
-.arrowButtons {
-  background: transparent;
-  border: none;
-}
-
-.clicked {
-  color: black;
-  background-color: var(--green);
-  border: solid var(--blue);
-  text-align: left;
-  border-bottom: solid black;
-}
+/* Pokemon card */
 
 .card {
   display: flex;
@@ -98,30 +49,85 @@ button:disabled {
   box-shadow: 0 8px 16px 8px rgb(255, 231, 143);
 }
 
-.cardButtonGroup {
+.card .name {
+  font-family: 'BreeSerif-Regular';
+  text-align: center;
+  letter-spacing: 3px;
+  padding: 0px;
+  margin: 10px;
+  
+}
+
+.card .sprite {
+  display: flex;
+  width: 15vw;
+  border: solid 0.6vw var(--cardEdge);
+}
+
+/* Buttons */
+
+button {
+  color: black;
+  font-size: large;
+  border-radius: 6px;
+}
+
+button:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-stat:disabled {
+  cursor: default;
+  font-weight: normal;
+}
+
+.button-stat {
+  background: transparent;
+  border: none;
+  text-align: left;
+  border-bottom: solid black;
+}
+
+.button-arrow {
+  background: transparent;
+  border: none;
+}
+
+.stat-button-clicked {
+  color: black;
+  background-color: var(--green);
+  border: solid var(--blue);
+  text-align: left;
+  border-bottom: solid black;
+}
+
+/* Button Groups */
+
+.stat-button-group {
   display: flex;
   flex-direction: column;
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
 
-.topCards {
+/* Containers */
+
+.carousel-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1%;
+}
+
+.three-cards-container {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
 }
 
-.starterPageContainer {
-  height: 100%;
-}
 
-.cardsContainer {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 1%;
-
-}
+/* Each card gets a class based on type which dictates background colour of card and sprite */
 
 .bug-pokemon {
   background-image: linear-gradient(to bottom right, #ff9442,#e5b38b,#dc9965,#e6b793,#ebc66f,#e1c27a);
@@ -172,7 +178,6 @@ button:disabled {
   background-image: linear-gradient(to bottom right, #9999ff,	#cc99ff,#c09ae4, #c2b8e0, 	#ccc0f2,#baaaee);
   .sprite {background-image: url('../public/images/poison-background.jpg');}
 }
-
 
 .ice-pokemon {
   background-image: linear-gradient(to bottom right, #bffffa,#b8fff9,#ccfffb,#bef0f8,#bcf1fb,#dbfffc);

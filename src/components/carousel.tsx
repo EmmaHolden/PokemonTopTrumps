@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "./card";
 import { Pokemon } from "../pokemonList";
+import Button from "./button";
 
 interface CarouselProps {
     pokemonArray: Pokemon[];  
@@ -33,14 +34,14 @@ const Carousel = ({pokemonArray, isDisabled, onClick}: CarouselProps) => {
       }
 
     return ( 
-            <div className = "cardsContainer">
-                        <button className = "arrowButtons" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png" alt="A backward arrow"></img></button>
-                        <div className = "topCards" onClick = {onClick}>
+            <div className = "carousel-container">
+                        <Button variant = "arrow" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png" alt="A backward arrow"></img></Button>
+                        <div className = "three-cards-container" onClick = {onClick}>
                             <Card pokemon = {pokemonArray[currentIndex % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 1) % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 2) % lengthOfArray]} isDisabled={isDisabled}/>
                         </div>
-                        <button className = "arrowButtons" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png" alt="A forward arrow"></img></button>
+                        <Button variant = "arrow" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png" alt="A forward arrow"></img></Button>
             </div>
      );
 }

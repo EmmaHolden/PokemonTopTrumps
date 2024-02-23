@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Pokemon } from "../pokemonList";
 import classNames from 'classnames';
+import Button from "./button";
 
 interface CardProps {
     pokemon: Pokemon;  
@@ -8,17 +9,6 @@ interface CardProps {
 }
 
 const Card = ({pokemon, isDisabled}: CardProps) => {
-
-    type Stat = 'hp' | 'attack' | 'defense' | 'specialAttack' | 'specialDefense' | 'speed'
-
-    const [clicked, setClicked] = useState<Stat[]>([])
-
-    const handleClick = (e: any) => {
-        let stat: Stat = e.currentTarget.id;
-        let newClicked = [...clicked]
-        newClicked.push(stat)
-        setClicked(newClicked)
-    }
 
     const classes = classNames('card', {
         'bug-pokemon' : pokemon.element === 'bug',
@@ -42,13 +32,13 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
         <div className = {classes}>
             <h2 className = "name">{pokemon.name.toUpperCase()}</h2>
             <img className="sprite" src={`../images/${pokemon.id}.png`} alt={`${pokemon.name}`}></img>
-            <div className = "cardButtonGroup">
-                <button id = 'hp' disabled={isDisabled ? true : clicked.includes('hp')} className = {clicked.includes('hp') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>HP: {pokemon.hp}</button>
-                <button id = 'attack' disabled={isDisabled ? true : clicked.includes('attack')} className = {clicked.includes('attack') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Attack: {pokemon.attack}</button>
-                <button id = 'defense' disabled={isDisabled ? true : clicked.includes('defense')} className = {clicked.includes('defense') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Defense: {pokemon.defense}</button>
-                <button id = 'specialAttack' disabled={isDisabled ? true : clicked.includes('specialAttack')} className = {clicked.includes('specialAttack') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Special Attack: {pokemon.specialAttack}</button>
-                <button id = 'specialDefense' disabled={isDisabled ? true : clicked.includes('specialDefense')} className = {clicked.includes('specialDefense') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Special Defense: {pokemon.specialDefense}</button>
-                <button id = 'speed' disabled={isDisabled ? true : clicked.includes('speed')} className = {clicked.includes('speed') ? "clicked" : "button-stat"} onClick={(e) => handleClick(e)}>Speed: {pokemon.speed}</button>
+            <div className = "stat-button-group">
+                <Button id = 'hp' variant = "stat" disabled={isDisabled}>HP: {pokemon.hp}</Button>
+                <Button id = 'attack' variant = "stat" disabled={isDisabled}>Attack: {pokemon.attack}</Button>
+                <Button id = 'defense' variant = "stat" disabled={isDisabled}>Defense: {pokemon.defense}</Button>
+                <Button id = 'specialAttack' variant = "stat" disabled={isDisabled}>Special Attack: {pokemon.specialAttack}</Button>
+                <Button id = 'specialDefense' variant = "stat" disabled={isDisabled}>Special Defense: {pokemon.specialDefense}</Button>
+                <Button id = 'speed' variant = "stat" disabled={isDisabled}>Speed: {pokemon.speed}</Button>
             </div>
         </div>
      );
