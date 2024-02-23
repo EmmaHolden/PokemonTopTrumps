@@ -30,7 +30,7 @@ const Button = ({variant, id, children, disabled = false, className, onClick, ti
         'button-secondary': variant === 'secondary',
         'button-stat': variant === 'stat',
         'button-arrow': variant === 'arrow',
-        'button-clicked': variant === 'stat' && beenClicked === true,
+        'stat-button-clicked': variant === 'stat' && beenClicked === true,
     })
 
     return (

@@ -95,7 +95,7 @@ button:disabled {
   border: none;
 }
 
-button.clicked {
+.stat-button-clicked {
   color: black;
   background-color: var(--green);
   border: solid var(--blue);
