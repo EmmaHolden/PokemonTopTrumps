@@ -13,8 +13,8 @@ const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) =>
         setStarterChosen(true)
     }
     return (
-        <div className = "starterPageContainer">
-            <div className = "titleContainer"><img className = "titleImage" src = "../images/choosePokemonTitle.png" alt="A title stating 'Choose your pokemon'"></img></div>
+        <div>
+            <div><img className = "title-image" src = "../images/choosePokemonTitle.png" alt="A title stating 'Choose your pokemon'"></img></div>
             <Carousel pokemonArray={starterPokemon} isDisabled onClick={handleClick}/>
         </div>
     )

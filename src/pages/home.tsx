@@ -1,13 +1,12 @@
-import { useState } from "react";
 import Card from "../components/card";
-import { Pokemon, starterPokemon, allPokemon } from "../pokemonList";
+import { Pokemon, allPokemon } from "../pokemonList";
 
 
 const Home = () => {
     const pokemon: Pokemon = allPokemon[56];
 
     return ( 
-        <div className = "cardsContainer">
+        <div className = "cards-arrows-container">
             <Card pokemon = {pokemon}/>
         </div>
      );
