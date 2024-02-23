@@ -77,9 +77,8 @@ button:hover {
   font-weight: bold;
 }
 
-button:disabled {
+.button-stat:disabled {
   cursor: default;
-  opacity: 0.7;
   font-weight: normal;
 }
 
