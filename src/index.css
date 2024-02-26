@@ -20,31 +20,6 @@ body {
   --green: #8bc57b;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: var(--cardEdge);
-}
-
-
-
-.image-overlay-container {
-  position: relative;
-  margin: 3%;
-  margin-bottom: 0px;
-}
-
-.image-overlay-container:hover .overlay {
-  opacity: 0.8;
-  cursor: pointer
-}
-
 .text {
   color: var(--starterBackground);
   font-family: 'BreeSerif-Regular';
@@ -56,11 +31,6 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
-.home-button-image {
-  display: block;
-  border: solid 10px var(--cardEdge);
 }
 
 .button-title {
@@ -157,12 +127,30 @@ button:hover {
 
 /* Image classes */
 
+.home-button-image {
+  display: block;
+  border: solid 10px var(--cardEdge);
+}
+
 .title-image {
   height: 18vh;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: var(--cardEdge);
+}
+
 
 /* Containers */
 
@@ -177,6 +165,17 @@ button:hover {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.image-overlay-container {
+  position: relative;
+  margin: 3%;
+  margin-bottom: 0px;
+}
+
+.image-overlay-container:hover .overlay {
+  opacity: 0.8;
+  cursor: pointer
 }
 
 /* Each card gets a class based on type which dictates background colour of card and sprite */
