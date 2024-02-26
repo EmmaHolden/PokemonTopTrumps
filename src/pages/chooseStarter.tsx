@@ -1,16 +1,19 @@
 import { starterPokemon } from "../pokemonList";
 import Carousel from "../components/carousel";
+import { useContext } from "react";
+import { StarterContext } from "../context/StarterProvider";
+import { useNavigate } from "react-router-dom";
 
 
-interface ChooseStarterProps {
-    starterChosen: boolean;
-    setStarterChosen: any;
-}
+const ChooseStarter = () => {
+    
+    const {starterChosen, setStarterChosen} = useContext(StarterContext)
 
-const ChooseStarter = ({starterChosen, setStarterChosen}: ChooseStarterProps) => {
+    const navigate = useNavigate()
 
     const handleClick = () => {
         setStarterChosen(true)
+        navigate("/")
     }
     return (
         <div>

@@ -165,10 +165,21 @@ export const allPokemon: Pokemon[] = [
     
 ]
 
-export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 1 || pokemon.id === 4 || pokemon.id === 7 || pokemon.id === 133 || pokemon.id === 25 )
-
-export const palletPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 56 || pokemon.id === 29 || pokemon.id === 32)
-
-export const viridianPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 10 || pokemon.id === 11 || pokemon.id === 13 || pokemon.id === 14 || pokemon.id === 25)
-
 export const poisonPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.element === 'poison')
+
+// Bulbasaur, Squirtle, Charmander, Pikachu, Eevee, Meowth
+export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 1 || pokemon.id === 4 || pokemon.id === 7 || pokemon.id === 133 || pokemon.id === 25 || pokemon.id === 52)
+
+// Mankey, Rattata, Pidgey, Nidoran-M, Nidoran-F
+export const routeOnePokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 56 || pokemon.id === 29 || pokemon.id === 32)
+
+// Caterpie, Weedle, Metapod, Kakuna, Pikachu
+export const viridianPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 10 || pokemon.id === 11 || pokemon.id === 13 || pokemon.id === 14 || pokemon.id === 25 || pokemon.id === 16)
+
+// Geodude, Onix, Diglett, Sandshrew => Prize 111 Rhyhorn
+export const pewterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 74 || pokemon.id === 95 || pokemon.id === 27 || pokemon.id === 50)
+
+// Spearow, Rattata, Sandshrew, Mankey => If got five pokemon, gift Magikarp (129)
+export const routeThreeFourPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 19 || pokemon.id === 21 || pokemon.id === 27 || pokemon.id === 56)
+
+export const mtMoonPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 41 || pokemon.id === 74 || pokemon.id === 27 || pokemon.id === 35 || pokemon.id === 46)

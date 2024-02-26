@@ -1,28 +1,29 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useState, useContext } from "react";
+import StarterProvider, { StarterContext } from "./context/StarterProvider"
+import packageJson from "../package.json";
 import "./index.css"
 import Home from "./pages/home";
-import ChooseStarter from "./pages/choose-starter";
-import { useState } from "react";
-import packageJson from "../package.json";
+import ChooseStarter from "./pages/chooseStarter";
+import Explore from "./pages/explore";
+import Battle from "./pages/battleGymLeader";
+import ChooseDeck from "./pages/chooseDeck";
 
 function App() {
-    console.log(process.env.REACT_APP_BUILD_NUM)
-    console.log(packageJson.version)
-   
     console.log(`VERSION: ${packageJson.version}.${process.env.REACT_APP_BUILD_NUM}`);
-
-    const [starterChosen, setStarterChosen] = useState(false)
+    const {starterChosen, setStarterChosen} = useContext(StarterContext)
 
   return (
     <div>
         <BrowserRouter>
-            <Routes>
-                <Route
-                    path='/'
-                    element={starterChosen ? <Home/> : <ChooseStarter starterChosen= {starterChosen} setStarterChosen={setStarterChosen}/>}/>  
-            </Routes>
+                <Routes>
+                    <Route path='/' element={starterChosen ? <Home/> : <ChooseStarter/>}/> 
+                    <Route path='/explore-wild' element={starterChosen ? <Explore/> : <Navigate to="/" replace />}/>
+                    <Route path='/choose-pokemon-team' element={starterChosen ? <ChooseDeck/> : <Navigate to="/" replace />}/>
+                    <Route path='/battle-gym-leader' element={starterChosen ? <Battle/> : <Navigate to="/" replace />}/>
+                    <Route path='*' element={<Navigate to="/" replace />}/>
+                </Routes>
         </BrowserRouter>
-
     </div>
 
 )
