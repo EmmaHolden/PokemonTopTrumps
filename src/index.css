@@ -20,6 +20,11 @@ body {
   --green: #8bc57b;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .text {
   color: var(--starterBackground);
   font-family: 'BreeSerif-Regular';
