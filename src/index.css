@@ -20,14 +20,58 @@ body {
   --green: #8bc57b;
 }
 
-/* Image classes */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: var(--cardEdge);
+}
 
-.title-image {
-  height: 18vh;
+
+
+.image-overlay-container {
+  position: relative;
+  margin: 3%;
+  margin-bottom: 0px;
+}
+
+.image-overlay-container:hover .overlay {
+  opacity: 0.8;
+  cursor: pointer
+}
+
+.text {
+  color: var(--starterBackground);
+  font-family: 'BreeSerif-Regular';
+  font-size: 32px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.home-button-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  border: solid 10px var(--cardEdge);
+}
+
+.button-title {
+  font-family: 'BreeSerif-Regular';
+  font-size: 22px;
+  margin-top: 0px;
+  padding: 1%;
+  text-align: center;
+  background-color: var(--cardEdge);
+  border: solid 10px var(--cardEdge);
+  border-top: none;
 }
 
 /* Pokemon card */
@@ -45,7 +89,7 @@ body {
   margin: 10px;
 }
 
-.card:hover {
+.card:hover, .image-overlay-container:hover {
   box-shadow: 0 8px 16px 8px rgb(255, 231, 143);
 }
 
@@ -111,6 +155,15 @@ button:hover {
   margin-bottom: 2vh;
 }
 
+/* Image classes */
+
+.title-image {
+  height: 18vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Containers */
 
 .carousel-container {
@@ -120,12 +173,11 @@ button:hover {
   padding: 1%;
 }
 
-.three-cards-container {
+.horizontal-container {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
 }
-
 
 /* Each card gets a class based on type which dictates background colour of card and sprite */
 
