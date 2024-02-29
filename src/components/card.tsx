@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Button from "./button";
 import { StarterContext } from "../context/StarterProvider";
 import { DeckContext } from "../context/deckProvider";
-import { addToDeck } from "../utils/addToDeck";
+import { addToActiveDeck } from "../utils/addToActiveDeck";
 
 interface CardProps {
     pokemon: Pokemon;  
@@ -14,12 +14,12 @@ interface CardProps {
 const Card = ({pokemon, isDisabled}: CardProps) => {
 
     const {starterChosen, setStarterChosen} = useContext(StarterContext)
-    const {deck, setDeck} = useContext(DeckContext)
+    const {activeDeck, setActiveDeck} = useContext(DeckContext)
 
     const handleClick = () => {
         if (!starterChosen){
             setStarterChosen(true)
-            addToDeck(pokemon, deck, setDeck)
+            addToActiveDeck(pokemon, activeDeck, setActiveDeck)
         }
     }
 

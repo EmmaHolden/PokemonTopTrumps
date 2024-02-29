@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Pokemon, allPokemon } from "../pokemonList";
 import { DeckContext, SetValue } from "../context/deckProvider";
-import { addToDeck } from "../utils/addToDeck";
+import { addToActiveDeck } from "../utils/addToActiveDeck";
 
 interface ChooseDeckProps {
 
@@ -11,7 +11,7 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
 
     const availableDeck: Pokemon[] = allPokemon;
 
-    const {deck, setDeck} = useContext(DeckContext)
+    const {activeDeck, setActiveDeck} = useContext(DeckContext)
 
     return ( 
         <div>
@@ -19,7 +19,7 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
             <div className = "page-in-half">
                 <span className = "pokemon-storage-box">
                     {availableDeck.map((card: Pokemon) => {
-                        return <img onClick = {() => addToDeck(card, deck, setDeck)} className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img>
+                        return <img onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)} className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img>
                     })}
                 </span>
                 <span className ="pokemon-storage-box">SECOND BOX</span>
