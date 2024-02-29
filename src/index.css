@@ -1,6 +1,9 @@
 body {
   font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
-  background-color: var(--starterBackground)
+  background-color: var(--starterBackground);
+  height: 100%;
+  width: 100%;
+
 }
 
 @font-face {
@@ -23,6 +26,33 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.page-in-half {
+  display: flex;
+  margin: 1em;
+  margin-top: 2em;
+}
+
+.pokemon-storage-box {
+  display: grid;
+  width: 50%;
+  height: 70vh;
+  padding: 0.8rem;
+  background-color: var(--blue);
+  margin: 1em;
+  flex: 1;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 0.5rem;
+  overflow-y: scroll;
+}
+
+.small-card {
+  height: 20vh;
+  width: 10vw;
+  background-color: var(--cardEdge);
+  border: solid 3px var(--starterBackground);
 }
 
 .text {

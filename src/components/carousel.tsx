@@ -6,7 +6,7 @@ import Button from "./button";
 interface CarouselProps {
     pokemonArray: Pokemon[];  
     isDisabled?: boolean;
-    onClick: any;
+    onClick?: any;
 }
 
 const Carousel = ({pokemonArray, isDisabled, onClick}: CarouselProps) => {
@@ -36,7 +36,7 @@ const Carousel = ({pokemonArray, isDisabled, onClick}: CarouselProps) => {
     return ( 
             <div className = "carousel-container">
                         <Button variant = "arrow" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png" alt="A backward arrow"></img></Button>
-                        <div className = "horizontal-container" onClick = {onClick}>
+                        <div className = "horizontal-container">
                             <Card pokemon = {pokemonArray[currentIndex % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 1) % lengthOfArray]} isDisabled={isDisabled}/>
                             <Card pokemon = {pokemonArray[(currentIndex + 2) % lengthOfArray]} isDisabled={isDisabled}/>
