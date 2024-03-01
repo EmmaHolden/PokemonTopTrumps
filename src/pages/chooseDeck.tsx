@@ -9,8 +9,6 @@ interface ChooseDeckProps {
 
 const ChooseDeck = ({}: ChooseDeckProps) => {
 
-    const availableDeck: Pokemon[] = allPokemon;
-
     const {activeDeck, setActiveDeck} = useContext(DeckContext)
 
     return ( 
@@ -18,11 +16,20 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
             <p>Choose Active Deck!</p>
             <div className = "page-in-half">
                 <span className = "pokemon-storage-box">
-                    {availableDeck.map((card: Pokemon) => {
-                        return <img onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)} className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img>
+
+                    {allPokemon.map((card: Pokemon, index) => {
+                        return (
+                        <div key={index}>
+                        <button className = "remove-button-styling" disabled = {activeDeck.includes(card)} onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)}><img className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img></button>
+                        </div>
+                        )
                     })}
                 </span>
-                <span className ="pokemon-storage-box">SECOND BOX</span>
+                <span className ="pokemon-storage-box">
+                    {activeDeck.length > 0 && activeDeck.map((card: Pokemon, index) => {
+                        return <img key = {index} onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)} className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img>
+                    })}
+                </span>
             </div>
         </div>
      );

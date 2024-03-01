@@ -15,19 +15,14 @@ export const DeckContext = createContext<DeckContextInterface>({
 });
 
 const DeckProvider = ({children}: PropsWithChildren<{}> ) => {
-    const [activeDeck, setActiveDeck] = useState<Pokemon[]>([]);
-    let localDeck = JSON.parse(localStorage.getItem('active-deck') || '{}');
-
-    useEffect(() => {
-      if (localDeck.length > 0){
-        setActiveDeck(localDeck)
-      }
-    }, []) 
-
+    let localActiveDeck = JSON.parse(localStorage.getItem('active-deck') || '[]');
+    const [activeDeck, setActiveDeck] = useState<Pokemon[]>(localActiveDeck);
+    
     useEffect(() => {
       localStorage.setItem('active-deck', JSON.stringify(activeDeck));
+      let localActiveDeck = JSON.parse(localStorage.getItem('active-deck') || '[]');
     }, [activeDeck])
-  
+
     return (
       <div>
         <DeckContext.Provider value={{activeDeck, setActiveDeck}}>
