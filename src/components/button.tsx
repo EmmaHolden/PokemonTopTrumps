@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, useState } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'stat' | 'arrow'
+type ButtonVariant = 'primary' | 'secondary' | 'stat' | 'arrow' |  'card'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant: ButtonVariant;
@@ -30,6 +30,7 @@ const Button = ({variant, id, children, disabled = false, className, onClick, ti
         'button-secondary': variant === 'secondary',
         'button-stat': variant === 'stat',
         'button-arrow': variant === 'arrow',
+        'button-card': variant === 'card',
         'stat-button-clicked': variant === 'stat' && beenClicked === true,
     })
 

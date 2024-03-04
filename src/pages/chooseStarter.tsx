@@ -1,10 +1,5 @@
 import { starterPokemon } from "../pokemonList";
 import Carousel from "../components/carousel";
-import { useContext } from "react";
-import { StarterContext } from "../context/StarterProvider";
-import { useNavigate } from "react-router-dom";
-import { DeckContext } from "../context/deckProvider";
-
 
 const ChooseStarter = () => {
 
