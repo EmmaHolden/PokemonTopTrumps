@@ -39,8 +39,8 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
                 </span>
             </div>
             <div className = "choose-deck-titles">
-                <div className = "heading-120"><h2>{"Pokemon Storage System"}</h2><Tooltip tooltipContent="This container holds all of your available pokemon. Click a card to add it to your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
-                <div className = "heading-80"><h2>{"Active Deck (Maximum of 6)"}</h2><Tooltip tooltipContent="You may carry between 1 and 6 cards with you at any time. Click a card to remove it from your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
+                <div className = "heading-120"><h2>Pokemon Storage System</h2><Tooltip tooltipContent="This container holds all of your available pokemon. Click a card to add it to your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
+                <div className = "heading-80"><h2>Active Deck</h2><Tooltip tooltipContent="You may carry between 1 and 6 cards with you at any time. Click a card to remove it from your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
                 </div>
         </div>
      );
