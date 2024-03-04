@@ -16,7 +16,7 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
     
     return ( 
         <div>
-            <p>Choose Active Deck!</p>
+            <div><img className = "title-image" src = "../images/chooseTeamTitle.png" alt="A title stating 'Choose your team'"></img></div>
             <div className = "page-in-half">
                 <span className = "pokemon-storage-box">
 
@@ -37,6 +37,7 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
                     )})}
                 </span>
             </div>
+            <div className = "choose-deck-titles"><h2 className = "heading-120">{"Pokemon Storage System"}</h2><h2 className = "heading-80">{"Active Deck (Maximum of 6)"}</h2></div>
         </div>
      );
 }
