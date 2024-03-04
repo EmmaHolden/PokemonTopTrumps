@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Pokemon } from "../pokemonList";
 import classNames from 'classnames';
 import Button from "./button";
+import { StarterContext } from "../context/StarterProvider";
+import { DeckContext } from "../context/deckProvider";
+import { addToActiveDeck } from "../utils/addToActiveDeck";
 
 interface CardProps {
     pokemon: Pokemon;  
@@ -9,6 +12,16 @@ interface CardProps {
 }
 
 const Card = ({pokemon, isDisabled}: CardProps) => {
+
+    const {starterChosen, setStarterChosen} = useContext(StarterContext)
+    const {activeDeck, setActiveDeck} = useContext(DeckContext)
+
+    const handleClick = () => {
+        if (!starterChosen){
+            setStarterChosen(true)
+            addToActiveDeck(pokemon, activeDeck, setActiveDeck)
+        }
+    }
 
     const classes = classNames('card', {
         'bug-pokemon' : pokemon.element === 'bug',
@@ -29,7 +42,7 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
     })
 
     return ( 
-        <div className = {classes}>
+        <div className = {classes} onClick={handleClick}>
             <h2 className = "name">{pokemon.name.toUpperCase()}</h2>
             <img className="sprite" src={`../images/${pokemon.id}.png`} alt={`${pokemon.name}`}></img>
             <div className = "stat-button-group">
