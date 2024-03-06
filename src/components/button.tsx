@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, useState } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'stat' | 'arrow' |  'card'
+type ButtonVariant = 'primary' | 'secondary' | 'stat' | 'arrow' |  'card' 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant: ButtonVariant;

@@ -37,9 +37,9 @@ const Carousel = ({pokemonArray, isDisabled, onClick}: CarouselProps) => {
             <div className = "carousel-container">
                         <Button variant = "arrow" onClick = {handlePrevious}><img style = {{width: 100}} src = "../images/back.png" alt="A backward arrow"></img></Button>
                         <div className = "horizontal-container">
-                            <Card pokemon = {pokemonArray[currentIndex % lengthOfArray]} isDisabled={isDisabled}/>
-                            <Card pokemon = {pokemonArray[(currentIndex + 1) % lengthOfArray]} isDisabled={isDisabled}/>
-                            <Card pokemon = {pokemonArray[(currentIndex + 2) % lengthOfArray]} isDisabled={isDisabled}/>
+                            <Button variant = 'card'><Card pokemon = {pokemonArray[currentIndex % lengthOfArray]} isDisabled={isDisabled} size = 'large'/></Button>
+                            <Button variant = 'card'><Card pokemon = {pokemonArray[(currentIndex + 1) % lengthOfArray]} isDisabled={isDisabled} size = 'large'/></Button>
+                            <Button variant = 'card'><Card pokemon = {pokemonArray[(currentIndex + 2) % lengthOfArray]} isDisabled={isDisabled} size = 'large'/></Button>
                         </div>
                         <Button variant = "arrow" onClick = {handleNext}><img style = {{width: 100}} src = "../images/forward.png" alt="A forward arrow"></img></Button>
             </div>

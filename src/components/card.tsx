@@ -9,9 +9,10 @@ import { addToActiveDeck } from "../utils/addToActiveDeck";
 interface CardProps {
     pokemon: Pokemon;  
     isDisabled?: boolean;
+    size: 'small' | 'large';
 }
 
-const Card = ({pokemon, isDisabled}: CardProps) => {
+const Card = ({pokemon, isDisabled, size}: CardProps) => {
 
     const {starterChosen, setStarterChosen} = useContext(StarterContext)
     const {activeDeck, setActiveDeck} = useContext(DeckContext)
@@ -39,12 +40,16 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
         'psychic-pokemon' : pokemon.element === 'psychic',
         'rock-pokemon' : pokemon.element === 'rock',
         'water-pokemon' : pokemon.element === 'water',
+        'card-large' : size === 'large',
+        'card-small' : size === 'small',
+
     })
 
     return ( 
         <div className = {classes} onClick={handleClick}>
             <h2 className = "name">{pokemon.name.toUpperCase()}</h2>
             <img className="sprite" src={`../images/${pokemon.id}.png`} alt={`${pokemon.name}`}></img>
+            {size === 'large' &&
             <div className = "stat-button-group">
                 <Button id = 'hp' variant = "stat" disabled={isDisabled}>HP: {pokemon.hp}</Button>
                 <Button id = 'attack' variant = "stat" disabled={isDisabled}>Attack: {pokemon.attack}</Button>
@@ -53,6 +58,7 @@ const Card = ({pokemon, isDisabled}: CardProps) => {
                 <Button id = 'specialDefense' variant = "stat" disabled={isDisabled}>Special Defense: {pokemon.specialDefense}</Button>
                 <Button id = 'speed' variant = "stat" disabled={isDisabled}>Speed: {pokemon.speed}</Button>
             </div>
+        }
         </div>
      );
 }
