@@ -5,6 +5,7 @@ import { addToActiveDeck } from "../utils/addToActiveDeck";
 import { removeFromActiveDeck } from "../utils/removeFromActiveDeck";
 import Button from "../components/button";
 import Tooltip from "../components/tooltip";
+import Card from "../components/card";
 
 interface ChooseDeckProps {
 
@@ -24,7 +25,7 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
                     {allPokemon.map((card: Pokemon, index) => {
                         return (
                         <div key={index}>
-                        <Button variant = 'card' disabled = {activeDeckIds.includes(card.id)} onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)}><img className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img></Button>
+                        <Button variant = 'card' disabled = {activeDeckIds.includes(card.id)} onClick = {() => addToActiveDeck(card, activeDeck, setActiveDeck)}><Card size = 'small' pokemon = {card}></Card></Button>
                         </div>
                         )
                     })}
@@ -33,14 +34,14 @@ const ChooseDeck = ({}: ChooseDeckProps) => {
                     {activeDeck.length > 0 && activeDeck.map((card: Pokemon, index) => {
                         return (
                         <div key={index}>
-                            <Button variant = 'card' disabled = {activeDeck.length < 2} onClick = {() => removeFromActiveDeck(card, activeDeck, setActiveDeck)}><img className = "small-card" src={`../images/${card.id}.png`} alt={`The pokemon card of ${card.name}`}></img></Button>
+                            <Button variant = 'card' disabled = {activeDeck.length < 2} onClick = {() => removeFromActiveDeck(card, activeDeck, setActiveDeck)}><Card size = 'small' pokemon = {card}></Card></Button>
                         </div>
                     )})}
                 </span>
             </div>
             <div className = "choose-deck-titles">
-                <div className = "heading-120"><h2>Pokemon Storage System</h2><Tooltip tooltipContent="This container holds all of your available pokemon. Click a card to add it to your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
-                <div className = "heading-80"><h2>Active Deck</h2><Tooltip tooltipContent="You may carry between 1 and 6 cards with you at any time. Click a card to remove it from your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
+                <div className = "flex-120"><h2 className = "instruction">Pokemon Storage System</h2><Tooltip tooltipContent="This container holds all of your available pokemon. Click a card to add it to your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
+                <div className = "flex-80"><h2 className = "instruction">Active Deck</h2><Tooltip tooltipContent="You may carry between 1 and 6 cards with you at any time. Click a card to remove it from your active deck."><span className = "tooltipIcon">?</span></Tooltip></div>
                 </div>
         </div>
      );

@@ -58,6 +58,7 @@ a {
 .button-card {
   background: none;
   border: none;
+  
 }
 
 .page-in-half {
@@ -70,7 +71,7 @@ a {
   margin: 1em;
 }
 
-h2 {
+.instruction {
   font-family: 'BreeSerif-Regular';
   font-size: xx-large;
   margin: 0px;
@@ -90,13 +91,13 @@ h2 {
   border-radius: 50%;
   padding: 0.1em 0.2em;
 }
-.heading-120 {
+.flex-120 {
   display: flex;
   justify-content: center;
   flex: 1;
 }
 
-.heading-80 {
+.flex-80 {
   display: flex;
   justify-content: center;
   flex: 0.8;  
@@ -134,13 +135,6 @@ h2 {
   border: solid 3px var(--cardEdge);
 }
 
-.small-card {
-  height: 20vh;
-  width: 10vw;
-  background-color: var(--cardEdge);
-  border: solid 3px var(--starterBackground);
-}
-
 .text {
   color: var(--starterBackground);
   font-family: 'BreeSerif-Regular';
@@ -170,14 +164,28 @@ h2 {
 .card {
   display: flex;
   flex-direction: column;
-  padding: 1%;
-  padding-top: 0;
-  width: 16vw;
+  border-radius: 8px;
+
+}
+
+.card-large {
   border: solid 0.6vw var(--cardEdge);
   outline: 0.1vw solid var(--gold);
   outline-offset: -0.6vw;
-  border-radius: 8px;
   margin: 10px;
+  width: 16vw;
+  padding: 5%;
+  padding-top: 0;
+
+}
+
+.card-small {
+  border: solid 0.2vw var(--cardEdge);
+  outline: 0.1vw solid var(--gold);
+  outline-offset: -0.1vw;
+  margin: 2px;
+  width: 10vw;
+  padding: 1%;
 }
 
 .card:hover, .image-overlay-container:hover {
@@ -186,17 +194,34 @@ h2 {
 
 .card .name {
   font-family: 'BreeSerif-Regular';
-  text-align: center;
+  text-align: center;  
+}
+
+.card-large .name {
   letter-spacing: 3px;
   padding: 0px;
   margin: 10px;
-  
+}
+
+.card-small .name {
+  font-size: large;
+  letter-spacing: 1px;
+  padding: 0px;
+  margin: 2px;
 }
 
 .card .sprite {
   display: flex;
+}
+
+.card-large .sprite {
   width: 15vw;
   border: solid 0.6vw var(--cardEdge);
+}
+
+.card-small .sprite {
+  width: 10vw;
+  border: solid 0.1vw var(--starterBackground);
 }
 
 /* Buttons */
