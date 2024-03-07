@@ -174,12 +174,28 @@ export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id
 export const routeOnePokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 56 || pokemon.id === 29 || pokemon.id === 32)
 
 // Caterpie, Weedle, Metapod, Kakuna, Pikachu
-export const viridianPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 10 || pokemon.id === 11 || pokemon.id === 13 || pokemon.id === 14 || pokemon.id === 25 || pokemon.id === 16)
+export const viridianForestPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 10 || pokemon.id === 11 || pokemon.id === 13 || pokemon.id === 14 || pokemon.id === 25 || pokemon.id === 16)
+
+// Butterfree, Beedrill, Ekans
+export const routeTwoPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 12 || pokemon.id === 15 || pokemon.id === 23)
 
 // Geodude, Onix, Diglett, Sandshrew => Prize 111 Rhyhorn
 export const pewterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 74 || pokemon.id === 95 || pokemon.id === 27 || pokemon.id === 50)
 
-// Spearow, Rattata, Sandshrew, Mankey => If got five pokemon, gift Magikarp (129)
+// Spearow, Rattata, Sandshrew, Mankey 
 export const routeThreeFourPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 19 || pokemon.id === 21 || pokemon.id === 27 || pokemon.id === 56)
 
+// Pokemon Centre - If got five pokemon, gift Magikarp (129)
+
+// Zubat, Geodude, Sandshrew, Clefairy, Paras
 export const mtMoonPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 41 || pokemon.id === 74 || pokemon.id === 27 || pokemon.id === 35 || pokemon.id === 46)
+
+// Pokemon Centre - If got ten pokemon, gift Bulbasaur/Charmander/Squirtle
+
+// Oddish, pidgey, bellsprout, venonat, pidgeotto
+export const routeTwentyFivePokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 43 || pokemon.id === 16 || pokemon.id === 17 || pokemon.id === 69 || pokemon.id === 48)
+
+// Pidgey, rattata, abra, jigglypuff, pidgeotto
+export const routeFivePokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 63 || pokemon.id === 39 || pokemon.id === 17)
+
+// Pokemon centre - If got 30 pokemon gift Machoke

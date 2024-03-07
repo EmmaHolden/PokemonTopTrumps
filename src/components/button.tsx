@@ -15,23 +15,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({variant, id, children, disabled = false, className, onClick, title, ...buttonProps}: ButtonProps) => {
 
-    const [beenClicked, setBeenClicked] = useState(false);
-
-    const handleClick = (e: any) => {
-        if (onClick){
-            onClick(e);
-        }
-        setBeenClicked(true) 
-
-    }
-
     const classes = classNames(className, {
         'button-primary': variant === 'primary',
         'button-secondary': variant === 'secondary',
         'button-stat': variant === 'stat',
         'button-arrow': variant === 'arrow',
         'button-card': variant === 'card',
-        'stat-button-clicked': variant === 'stat' && beenClicked === true,
     })
 
     return (
