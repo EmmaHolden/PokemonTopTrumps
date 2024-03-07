@@ -13,6 +13,7 @@ body {
   --cardEdge: #ffe78f;
   --starterBackground: #393c41;
   --blue: #0075BE;
+  --blueActive: #008ee6;
   --yellow: #FFCC00;
   --darkBlue: #3c5aa6;   
   --gold: #c7a008;
@@ -39,8 +40,6 @@ body {
   z-index: 1;
   top: -150%;
   left: 30%;
-  /* margin-top: 5px;
-  margin-left: -60px; */
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -55,6 +54,53 @@ a {
   text-decoration: inherit;
 }
 
+.button-stat {
+  width: 13vw;
+  height: 3vw;
+  margin: 1%;
+  border: solid 0.2vw var(--starterBackground);
+  background-color: var(--blue);
+  color: white;
+}
+
+.button-stat:hover {
+  cursor: pointer;
+  background-color: var(--blueActive);
+}
+
+.button-stat:active {
+  background-color: var(--blueActive);
+  box-shadow: 0 5px var(--starterBackground);
+  transform: translateY(4px);
+}
+
+
+
+.button-stat:disabled:active {
+  box-shadow: none;
+  transform: none;
+}
+
+.button-stat:disabled:hover {
+  box-shadow: none;
+  cursor: default;
+}
+
+.enemy-stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  border-bottom: solid 0.2vwpx black;
+  width: 13vw;
+  height: 3vw;
+  margin: 1%;
+  border: solid 0.2vw var(--starterBackground);
+  border-radius: 6px;
+  background-color: var(--blue);
+  color: white;
+}
+
 .stat {
   margin: 2%;
   text-align: left;
@@ -63,14 +109,20 @@ a {
 
 #stat-won {
   background-color: var(--green);
+  color: black;
+  border: solid 0.2vw transparent;
 }
 
 #stat-lost {
   background-color: var(--red);
+  color: black;
+  border: solid 0.2vw transparent;
 }
 
 #stat-draw {
   background-color: whitesmoke;
+  color: black;
+  border: solid 0.2vw transparent;
 }
 
 .button-card {
@@ -217,7 +269,7 @@ a {
   padding: 1%;
 }
 
-.card:hover, .image-overlay-container:hover {
+.card-large:hover, .card-small:hover, .image-overlay-container:hover {
   box-shadow: 0 8px 16px 8px rgb(255, 231, 143);
 }
 
@@ -287,30 +339,6 @@ button {
   border: none;
 }
 
-.button-stat {
-  width: 8vw;
-  height: 8vw;
-  border-radius: 50%;
-  border: solid 0.2vw var(--cardEdge);
-}
-
-.button-stat:disabled {
-  opacity: 0.7;
-}
-
-.button-stat:disabled:hover {
-  box-shadow: none;
-  cursor: default;
-}
-
-.button-stat:hover {
-  box-shadow: 0 0px 8px 8px rgb(255, 231, 143);
-  cursor: pointer;
-}
-
-#hp, #special-attack {background-color: var(--blue);}
-#attack, #special-defense {background-color: var(--yellow);}
-#defense, #speed {background-color: var(--red);}
 
 /* Button Groups */
 
@@ -319,12 +347,6 @@ button {
   flex-direction: column;
   margin-top: 2vh;
   margin-bottom: 2vh;
-}
-
-.stat-select-button-group {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 1%;
 }
 
 /* Image classes */
