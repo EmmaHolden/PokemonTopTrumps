@@ -61,6 +61,7 @@ a {
   border: solid 0.2vw var(--starterBackground);
   background-color: var(--blue);
   color: white;
+  text-align: right;
 }
 
 .button-stat:hover {
@@ -74,31 +75,16 @@ a {
   transform: translateY(4px);
 }
 
-
-
 .button-stat:disabled:active {
   box-shadow: none;
   transform: none;
+  background-color: var(--blue);
 }
 
 .button-stat:disabled:hover {
   box-shadow: none;
   cursor: default;
-}
-
-.enemy-stat {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1%;
-  border-bottom: solid 0.2vwpx black;
-  width: 13vw;
-  height: 3vw;
-  margin: 1%;
-  border: solid 0.2vw var(--starterBackground);
-  border-radius: 6px;
   background-color: var(--blue);
-  color: white;
 }
 
 .stat {
@@ -478,5 +464,4 @@ button {
   background-image: linear-gradient(to bottom right, #97dfe7,#91cee8,#7ce3fd,#36d4fc,#91d7e8,#56b8dc);
   .sprite {background-image: url('../public/images/water-background.jpg');}
 }
-
 

@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, useState } from 're
 type ButtonVariant = 'primary' | 'secondary' | 'stat' | 'arrow' |  'card' 
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant: ButtonVariant;
+    variant?: ButtonVariant;
     id?: string;
     children?: ReactNode | ReactNode[];
     disabled?: boolean;

@@ -67,7 +67,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                     <CardContainer pokemon = {playerPokemon} size = "medium">
                         <Name pokemon = {playerPokemon}/>
                         <Sprite pokemon = {playerPokemon}/>
-                        <div>
+                        <div className = "player-stat-button-group">
                         {remainingStats.includes("hp") ?
                         <Button disabled = {!playerTurn} onClick = {() => checkStats("hp")}variant = "stat" id = "hp">HP: {playerPokemon.hp}</Button> 
                         :
@@ -87,13 +87,13 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         }
 
                         {remainingStats.includes("specialAttack") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialAttack")}variant = "stat" id = "special-attack">Special Attack: {playerPokemon.specialAttack}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialAttack")}variant = "stat" id = "special-attack">Sp. Attack: {playerPokemon.specialAttack}</Button> 
                         :
                         <Button disabled variant = "stat" id = {statId("specialAttack", "player")}>Special Attack: {playerPokemon.specialAttack}</Button>
                         }
 
                         {remainingStats.includes("specialDefense") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialDefense")}variant = "stat" id = "special-defense">Special Defense: {playerPokemon.specialDefense}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialDefense")}variant = "stat" id = "special-defense">Sp. Defense: {playerPokemon.specialDefense}</Button> 
                         :
                         <Button disabled variant = "stat" id = {statId("specialDefense", "player")}>Special Defense: {playerPokemon.specialDefense}</Button>
                         }
@@ -106,21 +106,27 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         </div>
                     </CardContainer>
                 </Button>
-
+                        <p>VS</p>
                 <Button variant = 'card'>
                     <CardContainer pokemon = {enemyPokemon} size = "medium">
                         <Name pokemon = {enemyPokemon}/>
                         <Sprite pokemon = {enemyPokemon}/>
                         <div>
-                            <p className = "enemy-stat" id = {statId("hp", "enemy")}>{remainingStats?.includes('hp') ? `HP: ?` :  `HP: ${enemyPokemon.hp}` }</p>
-                            <p className = "enemy-stat" id = {statId("attack", "enemy")}>{remainingStats?.includes('attack') ? `Attack: ?` : `Attack: ${enemyPokemon.attack}`}</p>
-                            <p className = "enemy-stat" id = {statId("defense", "enemy")}>{remainingStats?.includes('defense') ? `Defense: ?` : `Defense: ${enemyPokemon.defense}`}</p>
-                            <p className = "enemy-stat" id = {statId("specialAttack", "enemy")}>{remainingStats?.includes('specialAttack') ? `Special Attack: ?` : `Special Attack: ${enemyPokemon.specialAttack}`}</p>
-                            <p className = "enemy-stat" id = {statId("specialDefense", "enemy")}>{remainingStats?.includes('specialDefense') ? `Special Defense: ?` : `Special Defense: ${enemyPokemon.specialDefense}`}</p>
-                            <p className = "enemy-stat" id = {statId("speed", "enemy")}>{remainingStats?.includes('speed') ? `Speed: ?` : `Speed: ${enemyPokemon.speed}`}</p>
+                            <Button disabled={true} variant = "stat" id = {statId("hp", "enemy")}>{remainingStats?.includes('hp') ? `HP: ?` :  `HP: ${enemyPokemon.hp}` }</Button>
+                            <Button disabled={true} variant = "stat" id = {statId("attack", "enemy")}>{remainingStats?.includes('attack') ? `Attack: ?` :  `Attack: ${enemyPokemon.attack}` }</Button>
+                            <Button disabled={true} variant = "stat" id = {statId("defense", "enemy")}>{remainingStats?.includes('defense') ? `Defense: ?` :  `Defense: ${enemyPokemon.defense}` }</Button>
+                            <Button disabled={true} variant = "stat" id = {statId("specialAttack", "enemy")}>{remainingStats?.includes('specialAttack') ? `Special Attack: ?` :  `Special Attack: ${enemyPokemon.specialAttack}` }</Button>
+                            <Button disabled={true} variant = "stat" id = {statId("specialDefense", "enemy")}>{remainingStats?.includes('specialDefense') ? `Special Defense: ?` :  `Special Defense: ${enemyPokemon.specialDefense}` }</Button>
+                            <Button disabled={true} variant = "stat" id = {statId("speed", "enemy")}>{remainingStats?.includes('speed') ? `Speed: ?` :  `Speed: ${enemyPokemon.speed}` }</Button>
                         </div>
                     </CardContainer>
                 </Button>
+            </div>
+            <div className = "horizontal-container">
+                <p>2</p>
+                <p>PLAYER TURN</p>
+                <p>1</p>
+                
             </div>
         </div>
     )
