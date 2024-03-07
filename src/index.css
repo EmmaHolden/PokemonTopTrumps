@@ -93,7 +93,22 @@ a {
   border-bottom: solid 1px black;
 }
 
-#stat-won {
+#stat-revealed {
+  background-color: var(--cardEdge);
+  color: black;
+  border: transparent;
+}
+
+.enemy-stat {
+  text-align: left;
+}
+
+.separate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* #stat-won {
   background-color: var(--green);
   color: black;
   border: solid 0.2vw transparent;
@@ -109,7 +124,7 @@ a {
   background-color: whitesmoke;
   color: black;
   border: solid 0.2vw transparent;
-}
+} */
 
 .button-card {
   background: none;

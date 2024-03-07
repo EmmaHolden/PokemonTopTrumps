@@ -16,28 +16,6 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const [playerWon, setPlayerWon] = useState([''])
     const [computerWon, setComputerWon] = useState([''])
 
-    const statId = (stat: string, role: string) => {
-        if (role === "player"){
-            if (playerWon?.includes(stat)){
-                return "stat-won"
-            } else if (computerWon?.includes(stat)){
-                return "stat-lost"
-            } else if (!remainingStats?.includes(stat)) {
-                return "stat-draw"
-            }
-
-        } else {
-            if (playerWon?.includes(stat)){
-                return "stat-lost"
-            } else if (computerWon?.includes(stat)){
-                return "stat-won"
-            } else if (!remainingStats?.includes(stat)){
-                return "stat-draw"
-            }
-        }
-    }
-    
-
     const checkStats = (stat: string) => {
         if (remainingStats.includes(stat)){
             let newRemainingStats = [...remainingStats]
@@ -56,7 +34,27 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 setComputerWon(newComputerWon)
             } 
         }
+    }
 
+    const checkImage = (role: string, stat: string) => {
+        if (role === "player"){
+            if (playerWon.includes(stat)){
+                return "../images/check.png"
+            } else if (computerWon.includes(stat)){
+                return "../images/cross.png"
+            } else {
+                return "../images/equal.png"
+            }
+        } else {
+            if (computerWon.includes(stat)){
+                return "../images/check.png"
+            } else if (playerWon.includes(stat)){
+                return "../images/cross.png"
+            } else {
+                return "../images/equal.png"
+            }
+
+        }
 
     }
 
@@ -69,39 +67,39 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         <Sprite pokemon = {playerPokemon}/>
                         <div className = "player-stat-button-group">
                         {remainingStats.includes("hp") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("hp")}variant = "stat" id = "hp">HP: {playerPokemon.hp}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("hp")}variant = "stat" id = "hp"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img> HP: {playerPokemon.hp}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("hp", "player")}>HP: {playerPokemon.hp}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "hp")}></img> HP: {playerPokemon.hp}</div></Button>
                         }
 
                         {remainingStats.includes("attack") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("attack")}variant = "stat" id = "attack">Attack: {playerPokemon.attack}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("attack")}variant = "stat" id = "attack"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img> Attack: {playerPokemon.attack}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("attack", "player")}>Attack: {playerPokemon.attack}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "attack")}></img> Attack: {playerPokemon.attack}</div></Button>
                         }
 
                         {remainingStats.includes("defense") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("defense")}variant = "stat" id = "defense">Defense: {playerPokemon.defense}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("defense")}variant = "stat" id = "defense"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img> Defense: {playerPokemon.defense}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("defense", "player")}>Defense: {playerPokemon.defense}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "defense")}></img> Defense: {playerPokemon.defense}</div></Button>
                         }
 
                         {remainingStats.includes("specialAttack") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialAttack")}variant = "stat" id = "special-attack">Sp. Attack: {playerPokemon.specialAttack}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialAttack")}variant = "stat" id = "special-attack"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img> Sp. Attack: {playerPokemon.specialAttack}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("specialAttack", "player")}>Special Attack: {playerPokemon.specialAttack}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "specialAttack")}></img> Sp. Attack: {playerPokemon.specialAttack}</div></Button>
                         }
 
                         {remainingStats.includes("specialDefense") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialDefense")}variant = "stat" id = "special-defense">Sp. Defense: {playerPokemon.specialDefense}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("specialDefense")}variant = "stat" id = "special-defense"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img>Sp. Defense: {playerPokemon.specialDefense}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("specialDefense", "player")}>Special Defense: {playerPokemon.specialDefense}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "specialDefense")}></img>Sp. Defense: {playerPokemon.specialDefense}</div></Button>
                         }
 
                         {remainingStats.includes("speed") ?
-                        <Button disabled = {!playerTurn} onClick = {() => checkStats("speed")}variant = "stat" id = "speed">Speed: {playerPokemon.speed}</Button> 
+                        <Button disabled = {!playerTurn} onClick = {() => checkStats("speed")}variant = "stat" id = "speed"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img>Speed: {playerPokemon.speed}</div></Button> 
                         :
-                        <Button disabled variant = "stat" id = {statId("speed", "player")}>Speed: {playerPokemon.speed}</Button>
+                        <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "speed")}></img>Speed: {playerPokemon.speed}</div></Button>
                         }
                         </div>
                     </CardContainer>
@@ -112,12 +110,47 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         <Name pokemon = {enemyPokemon}/>
                         <Sprite pokemon = {enemyPokemon}/>
                         <div>
-                            <Button disabled={true} variant = "stat" id = {statId("hp", "enemy")}>{remainingStats?.includes('hp') ? `HP: ?` :  `HP: ${enemyPokemon.hp}` }</Button>
-                            <Button disabled={true} variant = "stat" id = {statId("attack", "enemy")}>{remainingStats?.includes('attack') ? `Attack: ?` :  `Attack: ${enemyPokemon.attack}` }</Button>
-                            <Button disabled={true} variant = "stat" id = {statId("defense", "enemy")}>{remainingStats?.includes('defense') ? `Defense: ?` :  `Defense: ${enemyPokemon.defense}` }</Button>
-                            <Button disabled={true} variant = "stat" id = {statId("specialAttack", "enemy")}>{remainingStats?.includes('specialAttack') ? `Special Attack: ?` :  `Special Attack: ${enemyPokemon.specialAttack}` }</Button>
-                            <Button disabled={true} variant = "stat" id = {statId("specialDefense", "enemy")}>{remainingStats?.includes('specialDefense') ? `Special Defense: ?` :  `Special Defense: ${enemyPokemon.specialDefense}` }</Button>
-                            <Button disabled={true} variant = "stat" id = {statId("speed", "enemy")}>{remainingStats?.includes('speed') ? `Speed: ?` :  `Speed: ${enemyPokemon.speed}` }</Button>
+                            {remainingStats.includes('hp') 
+                            ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">HP: ? <img style = {{width: 30}} src = "../images/pokeballball.png"></img> </div></Button>      
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">HP: {enemyPokemon.hp}<img style = {{width: 30}} src = {checkImage("enemy", "hp")}></img> </div></Button>
+
+                            }
+
+                            {remainingStats.includes("attack") ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">Attack: ?<img style = {{width: 30}} src = "../images/pokeballball.png"></img></div></Button>
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">Attack: {enemyPokemon.attack}<img style = {{width: 30}} src = {checkImage("enemy", "attack")}></img> </div></Button>
+                            }
+
+                            {remainingStats.includes("defense") ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">Defense: ?<img style = {{width: 30}} src = "../images/pokeballball.png"></img></div></Button>
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">Defense: {enemyPokemon.defense}<img style = {{width: 30}} src = {checkImage("enemy", "defense")}></img> </div></Button>
+                            }
+
+                            {remainingStats.includes("specialAttack") ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">Sp. Attack: ?<img style = {{width: 30}} src = "../images/pokeballball.png"></img></div></Button>
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">Sp. Attack: {enemyPokemon.specialAttack}<img style = {{width: 30}} src = {checkImage("enemy", "specialAttack")}></img> </div></Button>
+                            }
+
+                            {remainingStats.includes("specialDefense") ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">Sp. Defense: ?<img style = {{width: 30}} src = "../images/pokeballball.png"></img></div></Button>
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">Sp. Defense: {enemyPokemon.specialDefense}<img style = {{width: 30}} src = {checkImage("enemy", "specialDefense")}></img> </div></Button>
+                            }
+
+                            
+                            {remainingStats.includes("speed") ?
+                            <Button disabled={true} className = "enemy-stat" variant = "stat"><div className = "separate">Speed: ?<img style = {{width: 30}} src = "../images/pokeballball.png"></img></div></Button>
+                            :
+                            <Button disabled={true} className = "enemy-stat" variant = "stat" id = 'stat-revealed'><div className = "separate">Speed: {enemyPokemon.speed}<img style = {{width: 30}} src = {checkImage("enemy", "speed")}></img> </div></Button>
+                            }
+
+                            
+                            
                         </div>
                     </CardContainer>
                 </Button>
