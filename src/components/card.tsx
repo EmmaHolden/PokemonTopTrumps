@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Pokemon } from "../pokemonList";
 import Button from "./button";
-import { StarterContext } from "../context/starterProvider";
+import { StarterContext } from "../context/starter";
 import { DeckContext } from "../context/deckProvider";
 import { addToActiveDeck } from "../utils/addToActiveDeck";
 import { findElementClass } from "../utils/findElementClass";

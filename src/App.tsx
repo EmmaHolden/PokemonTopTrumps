@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useState, useContext } from "react";
-import StarterProvider, { StarterContext } from "./context/starterProvider"
+import StarterProvider, { StarterContext } from "./context/starter"
 import packageJson from "../package.json";
 import "./index.css"
 import Home from "./pages/home";

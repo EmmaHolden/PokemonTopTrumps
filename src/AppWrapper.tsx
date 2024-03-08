@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './App'
-import StarterProvider from './context/starterProvider'
+import StarterProvider from './context/starter'
 import DeckProvider from './context/deckProvider'
 
 const AppWrapper = () => {

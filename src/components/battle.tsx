@@ -128,7 +128,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 </Button>
                         <div className = "vertical-container">
                             <img style = {{width: 200}} src = "../images/vs.png"></img>
-                            <img className = "rotating-pokeball" style = {{width: 100}} src = "../images/pokeballball.png"></img>
+                            <img className = {playerTurn ? "static-pokeball" : "rotating-pokeball"} style = {{width: 100}} src = "../images/pokeballball.png"></img>
                         </div>
                         
                 <Button variant = 'card'>

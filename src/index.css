@@ -46,6 +46,10 @@ body {
   100% {rotate: 360deg;}
 }
 
+.static-pokeball {
+  animation: none;
+}
+
 .rotating-pokeball {
   animation: loader 2.5s infinite;
 }
