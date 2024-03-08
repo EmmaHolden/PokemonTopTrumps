@@ -25,58 +25,32 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         setPlayerTurn(newPlayerTurn)
     }
 
-    const checkStats = (stat: string) => {
-            console.log("-----------------------------------")
-            console.log(`THE STAT WE ARE WORKING WITH IS: ${stat}`)
-            let newRemainingStats = [...remainingStats]
-            console.log("BEFORE DOING ANYTHING NEW REMAINING STATS ARE:")
-            console.log(newRemainingStats)
-            let index = remainingStats.indexOf(stat)
-            console.log(`INDEX OF ${stat} INSIDE REMAINING STATS:`)
-            console.log(index)
-            newRemainingStats.splice(index, 1)
-            console.log("AFTER SPLICING THAT INDEX, NEW REMAINING STATS IS LIKE THIS:")
-            console.log(newRemainingStats)
-            let playerScore = playerPokemon[stat as keyof Pokemon]
-            console.log(`Player Score ${playerScore}`)
-            let computerScore = enemyPokemon[stat as keyof Pokemon]
-            console.log(`Comp Score ${computerScore}`)
-            if (playerScore > computerScore){
-                console.log("player score higher")
-                let newPlayerWon = [...playerWon]
-                console.log("BEFORE DOING ANYTHING, HERE IS WHAT NEW PLAYER WON LOOKS LIKE:")
-                console.log(newPlayerWon)
-                newPlayerWon.push(stat)
-                console.log("AFTER PUSHING STAT, HERE IS WHAT NEW PLAYER WON LOOKS LIKE:")
-                console.log(newPlayerWon)
-                setRemainingStats(newRemainingStats)
-                console.log("SETTING REMAINING STATS - HERE THEY ARE")
-                console.log(remainingStats)
-                setPlayerWon(newPlayerWon)
-                console.log("SETTING PLAYER WON - HERE THEY ARE")
-                console.log(playerWon)
-            } else if (computerScore > playerScore){
-                console.log("computer score higher")
-                let newComputerWon = [...computerWon]
-                console.log("BEFORE DOING ANYTHING, HERE IS WHAT NEW COMPUTER WON LOOKS LIKE:")
-                console.log(newComputerWon)
-                newComputerWon.push(stat)
-                console.log("AFTER PUSHING STAT, HERE IS WHAT NEW COMPUTER WON LOOKS LIKE:")
-                console.log(newComputerWon)
-                setRemainingStats(newRemainingStats)
-                console.log("SETTING REMAINING STATS - HERE THEY ARE")
-                console.log(remainingStats)
-                setComputerWon(newComputerWon)
-                console.log("SETTING COMPUTER WON - HERE THEY ARE")
-                console.log(computerWon)
-            } 
+    const compareStats = (stat: string) => {
+        let playerScore = playerPokemon[stat as keyof Pokemon]
+        let computerScore = enemyPokemon[stat as keyof Pokemon]
+        if (playerScore > computerScore){
+            let newPlayerWon = [...playerWon]
+            newPlayerWon.push(stat)
+            setPlayerWon(newPlayerWon)
+        } else if (computerScore > playerScore){
+            let newComputerWon = [...computerWon]
+            newComputerWon.push(stat)
+            setComputerWon(newComputerWon)
+        } 
         switchTurn()
+
+    }
+    const checkStats = (stat: string) => {
+        let newRemainingStats = [...remainingStats]
+        let remainingStatsToSet = newRemainingStats.filter(arrayStat => arrayStat !== stat);
+        setRemainingStats(remainingStatsToSet)
+        compareStats(stat)     
     }
 
     const computerTurn = () => {
         setTimeout(() => {
         checkStats(remainingStats[0])
-    }, getRanNum(2000, 3000));
+    }, 3000);
     }
 
 
@@ -145,7 +119,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         }
 
                         {remainingStats.includes("speed") ?
-                        <Button disabled = {!playerTurn || !remainingStats.includes("specialDefense") } onClick = {() => checkStats("speed")}variant = "stat" id = "speed"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img>Speed: {playerPokemon.speed}</div></Button> 
+                        <Button disabled = {!playerTurn || !remainingStats.includes("speed") } onClick = {() => checkStats("speed")}variant = "stat" id = "speed"><div className = "separate"><img style = {{width: 30}} src = "../images/pokeballball.png"></img>Speed: {playerPokemon.speed}</div></Button> 
                         :
                         <Button disabled variant = "stat" id = "stat-revealed"><div className = "separate"><img style = {{width: 30}} src = {checkImage("player", "speed")}></img>Speed: {playerPokemon.speed}</div></Button>
                         }
