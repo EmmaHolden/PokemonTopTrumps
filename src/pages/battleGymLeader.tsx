@@ -5,14 +5,16 @@ interface BattleProps {
 
 }
 
-const Battle = ({}: BattleProps) => {
+const Gym= ({}: BattleProps) => {
 
 
     return ( 
         <div>
-            <p>Battle Gym Leaders!</p>
+            <div className="wrapper">
+                <div className="moving-van"><img src="../images/pokeballball.png"></img></div>
+            </div>
         </div>
      );
 }
  
-export default Battle;
+export default Gym;

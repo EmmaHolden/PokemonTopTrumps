@@ -22,6 +22,83 @@ body {
   --green: #8bc57b;
 }
 
+.wrapper{
+  position: absolute;
+  width: 100%;
+}
+
+.moving-van{
+  position: absolute;
+  width: 100px;
+  z-index: 10;
+  left: 18%;
+  animation: moveBus 9s ease-in-out forwards;
+}
+
+.moving-van2{
+  position: absolute;
+  width: 100px;
+  z-index: 10;
+  left: -10%;
+  animation: moveBus2 4s ease-in-out 5.5s forwards;
+}
+
+/* @keyframes moveBus{
+  0% {
+  left: 18%;
+  }
+  25% {
+    left: 80%
+  }
+  75% {
+  left: 18%;
+  }
+  100% {
+    left: 0;
+  }
+} */
+
+@keyframes moveBus2{
+  0% {
+  left: -10%;
+  }
+  100% {
+  left: 18%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.margin-top-ten {
+  margin-top: 10px;
+}
+
+.turn-visible {
+  opacity: 1;
+  font-family: 'BreeSerif-Regular';
+  color: var(--cardEdge);
+  font-size: x-large;
+  margin: 0 10px;
+}
+
+.turn-invisible {
+  opacity: 0;
+  font-family: 'BreeSerif-Regular';
+  font-size: x-large;
+  margin: 0 10px;
+}
+
 @keyframes loader {
   0% {rotate: 0deg;}
   5% {rotate: 18deg;}
@@ -46,12 +123,13 @@ body {
   100% {rotate: 360deg;}
 }
 
-.static-pokeball {
-  animation: none;
+.rotating-pokeball {
+  animation: loader 4s infinite;
+  animation-play-state: running;
 }
 
-.rotating-pokeball {
-  animation: loader 2.5s infinite;
+.paused {
+  animation-play-state: paused;
 }
 
 .tooltip {
@@ -140,28 +218,31 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-/* #stat-won {
-  background-color: var(--green);
-  color: black;
-  border: solid 0.2vw transparent;
+
+@keyframes moveBus{
+  0% {
+  left: 18%;
+  }
+  25% {
+    left: 80%
+  }
+  75% {
+  left: 18%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
-#stat-lost {
-  background-color: var(--red);
-  color: black;
-  border: solid 0.2vw transparent;
-}
-
-#stat-draw {
-  background-color: whitesmoke;
-  color: black;
-  border: solid 0.2vw transparent;
-} */
 
 .button-card {
   background: none;
   border: none;
   
+}
+
+.move {
+  animation: moveBus 9s ease-in-out forwards;
 }
 
 .page-in-half {
@@ -332,6 +413,7 @@ a {
 
 .card .sprite {
   display: flex;
+  
 }
 
 .card .sprite-container {
@@ -422,6 +504,18 @@ button {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.second-horizontal-container {
+  flex: 0.3;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.third-horizontal-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
 
 .vertical-container {
