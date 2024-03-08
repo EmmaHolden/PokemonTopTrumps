@@ -171,7 +171,6 @@ a {
   border: solid 0.2vw var(--starterBackground);
   background-color: var(--blue);
   color: white;
-  text-align: right;
 }
 
 .button-stat:hover {
@@ -213,10 +212,18 @@ a {
   text-align: left;
 }
 
-.separate {
+.player-stat {
+  text-align: right;
+}
+
+.stat-and-icon {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.reversed {
+  flex-direction: row-reverse;
 }
 
 @keyframes moveBus{
