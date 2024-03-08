@@ -16,6 +16,16 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const [playerWon, setPlayerWon] = useState([''])
     const [computerWon, setComputerWon] = useState([''])
 
+    const getRanNum = (min: number, max: number) => {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    const switchTurn = () => {
+        let newPlayerTurn = !playerTurn
+        setPlayerTurn(newPlayerTurn)
+        
+    }
+
     const checkStats = (stat: string) => {
         if (remainingStats.includes(stat)){
             let newRemainingStats = [...remainingStats]
@@ -34,6 +44,18 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 setComputerWon(newComputerWon)
             } 
         }
+        switchTurn()
+    }
+
+    const computerTurn = () => {
+        setTimeout(() => {
+        checkStats(remainingStats[0])
+    }, getRanNum(1000, 3000));
+    }
+
+
+    if (playerTurn === false){
+        computerTurn()
     }
 
     const checkImage = (role: string, stat: string) => {
@@ -104,7 +126,11 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                         </div>
                     </CardContainer>
                 </Button>
-                        <p>VS</p>
+                        <div className = "vertical-container">
+                            <img style = {{width: 200}} src = "../images/vs.png"></img>
+                            <img className = "rotating-pokeball" style = {{width: 100}} src = "../images/pokeballball.png"></img>
+                        </div>
+                        
                 <Button variant = 'card'>
                     <CardContainer pokemon = {enemyPokemon} size = "medium">
                         <Name pokemon = {enemyPokemon}/>
@@ -156,9 +182,9 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 </Button>
             </div>
             <div className = "horizontal-container">
-                <p>2</p>
-                <p>PLAYER TURN</p>
-                <p>1</p>
+                <p>{playerWon.length - 1}</p>
+                <p>{playerTurn ? `${playerPokemon.name}'s turn` : `${enemyPokemon.name}'s turn`}</p>
+                <p>{computerWon.length - 1}</p>
                 
             </div>
         </div>

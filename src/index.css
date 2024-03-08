@@ -22,6 +22,34 @@ body {
   --green: #8bc57b;
 }
 
+@keyframes loader {
+  0% {rotate: 0deg;}
+  5% {rotate: 18deg;}
+  10% {rotate: 36deg;}
+  15% {rotate: 54deg;}
+  20% {rotate: 72deg;}
+  25% {rotate: 90deg;}
+  30% {rotate: 108deg;}
+  35% {rotate: 126deg;}
+  40% {rotate: 144deg;}
+  45% {rotate: 162deg;}
+  50% {rotate: 180deg;}
+  55% {rotate: 198deg;}
+  60% {rotate: 216deg;}
+  65% {rotate: 234deg}
+  70% {rotate: 252deg;}
+  75% {rotate: 270deg;}
+  80% {rotate: 288deg;}
+  85% {rotate: 306deg;}
+  90% {rotate: 324deg;}
+  95% {rotate: 342deg;}
+  100% {rotate: 360deg;}
+}
+
+.rotating-pokeball {
+  animation: loader 2.5s infinite;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -390,6 +418,13 @@ button {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .image-overlay-container {
