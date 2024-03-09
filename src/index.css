@@ -233,32 +233,124 @@ a {
   
 }
 
-@keyframes move-right{
-  0% {left: 40%;}
-  10% {left: 42%;}
-  20% {left: 44%;}
-  30% {left: 46%;}
-  40% {left: 48%;}
-  50% {left: 50%}
-  60% {left: 48%;}
-  70% {left: 46%;}
-  80% {left: 44%;}
-  90% {left: 42%;}
+@keyframes player-success{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 41%; top: 26%; rotate: 5deg;}
+  10% {left: 42%; top: 27%; rotate: 10deg;}
+  15% {left: 43%; top: 28%; rotate: 15deg;}
+  20% {left: 44%; top: 29%; rotate: 20deg;}
+  25% {left: 45%; top: 30%; rotate: 25deg;}
+  30% {left: 46%; top: 31%; rotate: 30deg;}
+  35% {left: 47%; top: 32%; rotate: 35deg;}
+  40% {left: 48%; top: 33%; rotate: 40deg;}
+  45% {left: 49%; top: 34%; rotate: 35deg;}
+  50% {left: 50%; top: 35%; rotate: 30deg;}
+  55% {left: 49%; top: 34%; rotate: 25deg;}
+  60% {left: 48%; top: 33%; rotate: 20deg;}
+  65% {left: 47%; top: 32%; rotate: 15deg;}
+  70% {left: 46%; top: 31%; rotate: 10deg;}
+  75% {left: 45%; top: 30%; rotate: 5deg;}
+  80% {left: 44%; top: 29%; rotate: 0deg;}
+  85% {left: 43%; top: 28%;}
+  90% {left: 42%; top: 27%;}
+  95% {left: 41%; top: 26%;}
+  100% {left: 40%; top: 25%;}
+}
+
+@keyframes player-fail{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 42%; top: 27%; rotate: 10deg;}
+  10% {left: 44%; top: 29%; rotate: 20deg;}
+  15% {left: 46%; top: 31%; rotate: 30deg;}
+  20% {left: 48%; top: 33%; rotate: 40deg;}
+  25% {left: 50%; top: 35%; rotate: 20deg;}
+  30% {left: 48%; top: 33%; rotate: 0deg;}
+  35% {left: 46%; top: 31%; rotate: -20deg;}
+  40% {left: 44%; top: 29%; rotate: -40deg;}
+  45% {left: 42%; top: 27%; rotate: -60deg;}
+  50% {left: 40%; top: 25%; rotate: -80deg;}
+  55% {left: 38%; rotate: -100deg;}
+  60% {left: 36%; rotate: -120deg;}
+  65% {left: 34%; rotate: -140deg;}
+  70% {left: 32%; rotate: -160deg;}
+  75% {left: 30%; rotate: -180deg;}
+  80% {left: 32%;}
+  85% {left: 34%;}
+  90% {left: 36%;}
+  95% {left: 38%;}
   100% {left: 40%;}
 }
 
-@keyframes move-left{
-  0% {left: 40%;}
-  10% {left: 38%;}
-  20% {left: 36%;}
-  30% {left: 34%;}
-  40% {left: 32%;}
-  50% {left: 30%}
-  60% {left: 32%;}
-  70% {left: 34%;}
-  80% {left: 36%;}
-  90% {left: 38%;}
+@keyframes enemy-fail{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 38%; top: 27%; rotate: -10deg;}
+  10% {left: 36%; top: 29%; rotate: -20deg;}
+  15% {left: 34%; top: 31%; rotate: -30deg;}
+  20% {left: 32%; top: 33%; rotate: -40deg;}
+  25% {left: 30%; top: 35%; rotate: -20deg;}
+  30% {left: 32%; top: 33%; rotate: 0deg;}
+  35% {left: 34%; top: 31%; rotate: 20deg;}
+  40% {left: 36%; top: 29%; rotate: 40deg;}
+  45% {left: 38%; top: 27%; rotate: 60deg;}
+  50% {left: 40%; top: 25%; rotate: 80deg;}
+  55% {left: 42%; rotate: 100deg;}
+  60% {left: 44%; rotate: 120deg;}
+  65% {left: 46%; rotate: 140deg;}
+  70% {left: 48%; rotate: 160deg;}
+  75% {left: 50%; rotate: 180deg;}
+  80% {left: 48%;}
+  85% {left: 46%;}
+  90% {left: 44%;}
+  95% {left: 42%;}
   100% {left: 40%;}
+}
+
+@keyframes draw{
+  0% {left: 40%;}
+  5% {left: 41%;}
+  10% {left: 40%;}
+  15% {left: 39%;}
+  20% {left: 40%;}
+  25% {left: 41%;}
+  30% {left: 40%;}
+  35% {left: 39%;}
+  40% {left: 40%;}
+  45% {left: 41%;}
+  50% {left: 40%;}
+  55% {left: 39%;}
+  60% {left: 40%;}
+  65% {left: 41%;}
+  70% {left: 40%;}
+  75% {left: 39%;}
+  80% {left: 40%;}
+  85% {left: 41%;}
+  90% {left: 40%;}
+  95% {left: 39%;}
+  100% {left: 40%;}
+}
+
+@keyframes enemy-success{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 39%; top: 26%; rotate: -5deg;}
+  10% {left: 38%; top: 27%; rotate: -10deg;}
+  15% {left: 37%; top: 28%; rotate: -15deg;}
+  20% {left: 36%; top: 29%; rotate: -20deg;}
+  25% {left: 35%; top: 30%; rotate: -25deg;}
+  30% {left: 34%; top: 31%; rotate: -30deg;}
+  35% {left: 33%; top: 32%; rotate: -35deg;}
+  40% {left: 32%; top: 33%; rotate: -40deg;}
+  45% {left: 31%; top: 34%; rotate: -35deg;}
+  50% {left: 30%; top: 35%; rotate: -30deg;}
+  55% {left: 31%; top: 34%; rotate: -25deg;}
+  60% {left: 32%; top: 33%; rotate: -20deg;}
+  65% {left: 33%; top: 32%; rotate: -15deg;}
+  70% {left: 34%; top: 31%; rotate: -10deg;}
+  75% {left: 35%; top: 30%; rotate: -5deg;}
+  80% {left: 35%; top: 29%; rotate: -0deg;}
+  85% {left: 37%; top: 28%;}
+  90% {left: 38%; top: 27%;}
+  95% {left: 39%; top: 26%;}
+  100% {left: 40%; top: 25%;}
 }
 
 .winning-result {
@@ -266,18 +358,33 @@ a {
   width: 300px;
 }
 
-.player-attack {
+.player-attack-successful {
   position: absolute;
-  animation: move-right 0.5s;
+  animation: player-success 0.5s;
+}
+
+.draw {
+  position: absolute;
+  animation: draw 1s;
+}
+
+.player-attack-unsuccessful {
+  position: absolute;
+  animation: player-fail 1s;
+}
+
+.enemy-attack-successful {
+  position: absolute;
+  animation: enemy-success 0.5s;
+}
+
+.enemy-attack-unsuccessful {
+  position: absolute;
+  animation: enemy-fail 1s;
 }
 
 .no-attack {
   position: absolute;
-}
-
-.enemy-attack {
-  position: absolute;
-  animation: move-left 0.5s;
 }
 
 .page-in-half {

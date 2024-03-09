@@ -23,8 +23,9 @@ interface BattleProps {
 const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const [arrayStats, setArrayStats] = useState({"hp": "unselected", "attack": "unselected", "defense": "unselected", "specialAttack": "unselected", "specialDefense": "unselected", "speed": "unselected"})
     const [playerTurn, setPlayerTurn] = useState(true)
+    const [playerTurnString, setPlayerTurnString] = useState("")
+    const [wonRound, setWonRound] = useState("none")
     const [playerScore, setPlayerScore] = useState(0)
-    const [animationHits, setAnimationHits] = useState("none")
     const [computerScore, setComputerScore] = useState(0)
     const [gameOver, setGameOver] = useState(false)
 
@@ -34,6 +35,8 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
 
     const switchTurn = () => {
         let newPlayerTurn = !playerTurn
+        let playerTurnString = `${newPlayerTurn}`
+        setPlayerTurnString(playerTurnString)
         setPlayerTurn(newPlayerTurn)
     }
 
@@ -42,19 +45,19 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         let playerStat = playerPokemon[stat as keyof Pokemon]
         let computerStat = enemyPokemon[stat as keyof Pokemon]
         if (playerStat > computerStat){
-            setAnimationHits("computer")
+            setWonRound("player")
             newRemainingStats[stat as keyof statObj] = "player"
             let newPlayerScore = playerScore;
             newPlayerScore += 1;
             setPlayerScore(newPlayerScore)
         } else if (computerStat > playerStat){
-            setAnimationHits("player")
+            setWonRound("computer")
             newRemainingStats[stat as keyof statObj] = "computer"
             let newComputerScore = computerScore;
             newComputerScore += 1;
             setComputerScore(newComputerScore);
         } else if (computerStat === playerStat){
-            setAnimationHits("none")
+            setWonRound("draw")
             newRemainingStats[stat as keyof statObj] = "draw"
         }
         setArrayStats(newRemainingStats) 
@@ -83,11 +86,18 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     }, [playerTurn])
 
     const checkAnimation = () => {
-        if (animationHits === "player"){
-            return "enemy-attack"
-        } else if (animationHits === "computer"){
-            return "player-attack"
-        } else {
+        if (wonRound === "player" && playerTurn === false){
+            return "player-attack-successful"
+        } else if (wonRound === "computer" && playerTurn === false){
+            return "player-attack-unsuccessful"
+        } else if (wonRound === 'draw'){
+            return "draw"
+        } else if (wonRound === "computer"){
+            return "enemy-attack-successful"
+        } else if (wonRound === "player"){
+            return "enemy-attack-unsuccessful"
+        } 
+        else {
             return "no-attack"
         }
     }
@@ -105,7 +115,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                     </CardContainer>
                 </Button>
 
-                        <div className = "vertical-container">
+                        <div key = {playerTurnString} className = "vertical-container">
                             {!gameOver && <img className = {checkAnimation()} style = {{width: 300}} src = "../images/vs.png"></img>}
                             {gameOver && <img src = {playerScore > computerScore ? '../images/win.png' : '../images/lose.png'} className = "winning-result"></img>}
                         </div>
