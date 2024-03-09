@@ -24,6 +24,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const [arrayStats, setArrayStats] = useState({"hp": "unselected", "attack": "unselected", "defense": "unselected", "specialAttack": "unselected", "specialDefense": "unselected", "speed": "unselected"})
     const [playerTurn, setPlayerTurn] = useState(true)
     const [playerScore, setPlayerScore] = useState(0)
+    const [animationHits, setAnimationHits] = useState("none")
     const [computerScore, setComputerScore] = useState(0)
     const [gameOver, setGameOver] = useState(false)
 
@@ -41,16 +42,19 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         let playerStat = playerPokemon[stat as keyof Pokemon]
         let computerStat = enemyPokemon[stat as keyof Pokemon]
         if (playerStat > computerStat){
+            setAnimationHits("computer")
             newRemainingStats[stat as keyof statObj] = "player"
             let newPlayerScore = playerScore;
             newPlayerScore += 1;
             setPlayerScore(newPlayerScore)
         } else if (computerStat > playerStat){
+            setAnimationHits("player")
             newRemainingStats[stat as keyof statObj] = "computer"
             let newComputerScore = computerScore;
             newComputerScore += 1;
             setComputerScore(newComputerScore);
         } else if (computerStat === playerStat){
+            setAnimationHits("none")
             newRemainingStats[stat as keyof statObj] = "draw"
         }
         setArrayStats(newRemainingStats) 
@@ -78,12 +82,22 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         }
     }, [playerTurn])
 
+    const checkAnimation = () => {
+        if (animationHits === "player"){
+            return "enemy-attack"
+        } else if (animationHits === "computer"){
+            return "player-attack"
+        } else {
+            return "no-attack"
+        }
+    }
+
 
     return (
         <div>
             <div className = "horizontal-container">
 
-                <Button variant = 'card' className = 'move'>
+                <Button variant = 'card'>
                     <CardContainer pokemon = {playerPokemon} size = "medium">
                         <Name pokemon = {playerPokemon}/>
                         <Sprite pokemon = {playerPokemon}/>
@@ -92,8 +106,8 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 </Button>
 
                         <div className = "vertical-container">
-                            <img style = {{width: 300}} src = "../images/vs.png"></img>
-                            {gameOver && <p className = "turn-visible">{playerScore > computerScore ? `${playerPokemon.name} wins!` : `${enemyPokemon.name} wins!`}</p>}
+                            {!gameOver && <img className = {checkAnimation()} style = {{width: 300}} src = "../images/vs.png"></img>}
+                            {gameOver && <img src = {playerScore > computerScore ? '../images/win.png' : '../images/lose.png'} className = "winning-result"></img>}
                         </div>
                         
                 <Button variant = 'card'>
