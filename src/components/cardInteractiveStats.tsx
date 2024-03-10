@@ -6,14 +6,15 @@ interface InteractiveStatsProps {
     pokemon: Pokemon;
     arrayStats: statObj;
     playerTurn: boolean;
-    variant: "enemy" | "player"
+    variant: "enemy" | "player";
+    isDisabled: boolean;
     handleClick?: any;
     gameOver: boolean;
 }
 
 
 
-const InteractiveStats = ({pokemon, arrayStats, playerTurn, variant, handleClick, gameOver}: InteractiveStatsProps) => {
+const InteractiveStats = ({pokemon, arrayStats, playerTurn, variant, isDisabled, handleClick, gameOver}: InteractiveStatsProps) => {
 
     const checkImage = (role: string, stat: string) => {
         if (role === "player"){
@@ -45,7 +46,7 @@ const InteractiveStats = ({pokemon, arrayStats, playerTurn, variant, handleClick
                     {camelNameOfStats.map((statName) =>
                         <div>
                             {arrayStats[statName as keyof statObj] === "unselected" && !gameOver ?
-                                <Button disabled = {variant === "player" ? !playerTurn : true} onClick = {() => handleClick(statName)} className = {variant === "enemy" ? "enemy-stat" : "player-stat"} variant = "stat" id = {statName}>
+                                <Button disabled = {variant === "player" ? !playerTurn || isDisabled : true} onClick = {() => handleClick(statName)} className = {variant === "enemy" ? "enemy-stat" : "player-stat"} variant = "stat" id = {statName}>
                                     <div className = {variant === "player" ? "stat-and-icon" : "stat-and-icon reverse"}>
                                         <img style = {{width: 30}} src = "../images/pokeballball.png"></img> 
                                         {variant === "player" ? `${displayNameOfStats[statName as keyof statObj]}: ${pokemon[statName as keyof Pokemon]}` : `${displayNameOfStats[statName as keyof statObj]}: ?` }
