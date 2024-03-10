@@ -264,40 +264,40 @@ a {
 
 @keyframes enemy-fail{
   0% {left: 40%; rotate: 0deg;}
-  2% {left: 39%; rotate: 5deg;}
-  4% {left: 38%; rotate: 10deg;}
-  6% {left: 37%; rotate: 15deg;}
-  8% {left: 36%; rotate: 20deg;}
-  10% {left: 35%; rotate: 25deg;}
-  12% {left: 34%; rotate: 30deg;}
-  14% {left: 33%; rotate: 35deg;}
-  16% {left: 32%; rotate: 40deg;}
-  18% {left: 31%; rotate: 35deg;}
-  20% {left: 30%; rotate: 30deg; box-shadow: 0px 0px 30px 10px blue;
+  2% {left: 39%; rotate: -5deg;}
+  4% {left: 38%; rotate: -10deg;}
+  6% {left: 37%; rotate: -15deg;}
+  8% {left: 36%; rotate: -20deg;}
+  10% {left: 35%; rotate: -25deg;}
+  12% {left: 34%; rotate: -30deg;}
+  14% {left: 33%; rotate: -35deg;}
+  16% {left: 32%; rotate: -40deg;}
+  18% {left: 31%; rotate: -35deg;}
+  20% {left: 30%; rotate: -30deg; box-shadow: 0px 0px 30px 10px blue;
     background-color: blue;
     opacity: 0.7;}
-  22% {left: 31%; rotate: 30deg;}
-  24% {left: 32%; rotate: 30deg;}
-  26% {left: 33%; rotate: 30deg;}
-  28% {left: 32%; rotate: 30deg;}
-  30% {left: 31%; rotate: 30deg;}
-  32% {left: 30%; rotate: 30deg; box-shadow: 0px 0px 50px 10px blue;
+  22% {left: 31%; rotate: -30deg;}
+  24% {left: 32%; rotate: -30deg;}
+  26% {left: 33%; rotate: -30deg;}
+  28% {left: 32%; rotate: -30deg;}
+  30% {left: 31%; rotate: -30deg;}
+  32% {left: 30%; rotate: -30deg; box-shadow: 0px 0px 50px 10px blue;
     background-color: blue;
     opacity: 0.7;}
-  34% {left: 31%; rotate: 30deg;}
-  36% {left: 32%; rotate: 30deg;}
-  38% {left: 33%; rotate: 30deg;}
-  40% {left: 32%; rotate: 30deg;}
-  42% {left: 31%; rotate: 30deg;}
-  44% {left: 30%; rotate: 30deg; box-shadow: 0px 0px 70px 10px blue;
+  34% {left: 31%; rotate: -30deg;}
+  36% {left: 32%; rotate: -30deg;}
+  38% {left: 33%; rotate: -30deg;}
+  40% {left: 32%; rotate: -30deg;}
+  42% {left: 31%; rotate: -30deg;}
+  44% {left: 30%; rotate: -30deg; box-shadow: 0px 0px 70px 10px blue;
     background-color: blue;
     opacity: 0.7;}
-  46% {left: 31%; rotate: 25deg;}
-  48% {left: 32%; rotate: 20deg;}
-  50% {left: 33%; rotate: 15deg;}
-  52% {left: 34%; rotate: 10deg;}
-  54% {left: 35%; rotate: 5deg;}
-  56% {left: 36%; rotate: 0deg;}
+  46% {left: 31%; rotate: -25deg;}
+  48% {left: 32%; rotate: -20deg;}
+  50% {left: 33%; rotate: -15deg;}
+  52% {left: 34%; rotate: -10deg;}
+  54% {left: 35%; rotate: -5deg;}
+  56% {left: 36%; rotate: -0deg;}
   58% {left: 38%;}
   60% {left: 40%;}
   62% {left: 42%;}
