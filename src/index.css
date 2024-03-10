@@ -13,12 +13,123 @@ body {
   --cardEdge: #ffe78f;
   --starterBackground: #393c41;
   --blue: #0075BE;
+  --blueActive: #008ee6;
   --yellow: #FFCC00;
   --darkBlue: #3c5aa6;   
   --gold: #c7a008;
   --purple: #242155;
   --red: #d53141;
   --green: #8bc57b;
+}
+
+.wrapper{
+  position: absolute;
+  width: 100%;
+}
+
+.moving-van{
+  position: absolute;
+  width: 100px;
+  z-index: 10;
+  left: 18%;
+  animation: moveBus 9s ease-in-out forwards;
+}
+
+.moving-van2{
+  position: absolute;
+  width: 100px;
+  z-index: 10;
+  left: -10%;
+  animation: moveBus2 4s ease-in-out 5.5s forwards;
+}
+
+/* @keyframes moveBus{
+  0% {
+  left: 18%;
+  }
+  25% {
+    left: 80%
+  }
+  75% {
+  left: 18%;
+  }
+  100% {
+    left: 0;
+  }
+} */
+
+@keyframes moveBus2{
+  0% {
+  left: -10%;
+  }
+  100% {
+  left: 18%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.margin-top-ten {
+  margin-top: 10px;
+}
+
+.turn-visible {
+  opacity: 1;
+  font-family: 'BreeSerif-Regular';
+  color: var(--cardEdge);
+  font-size: x-large;
+  margin: 0 10px;
+}
+
+.turn-invisible {
+  opacity: 0;
+  font-family: 'BreeSerif-Regular';
+  font-size: x-large;
+  margin: 0 10px;
+}
+
+@keyframes loader {
+  0% {rotate: 0deg;}
+  5% {rotate: 18deg;}
+  10% {rotate: 36deg;}
+  15% {rotate: 54deg;}
+  20% {rotate: 72deg;}
+  25% {rotate: 90deg;}
+  30% {rotate: 108deg;}
+  35% {rotate: 126deg;}
+  40% {rotate: 144deg;}
+  45% {rotate: 162deg;}
+  50% {rotate: 180deg;}
+  55% {rotate: 198deg;}
+  60% {rotate: 216deg;}
+  65% {rotate: 234deg}
+  70% {rotate: 252deg;}
+  75% {rotate: 270deg;}
+  80% {rotate: 288deg;}
+  85% {rotate: 306deg;}
+  90% {rotate: 324deg;}
+  95% {rotate: 342deg;}
+  100% {rotate: 360deg;}
+}
+
+.rotating-pokeball {
+  animation: loader 4s infinite;
+  animation-play-state: running;
+}
+
+.paused {
+  animation-play-state: paused;
 }
 
 .tooltip {
@@ -39,8 +150,6 @@ body {
   z-index: 1;
   top: -150%;
   left: 30%;
-  /* margin-top: 5px;
-  margin-left: -60px; */
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -55,10 +164,227 @@ a {
   text-decoration: inherit;
 }
 
+.button-stat {
+  width: 13vw;
+  height: 3vw;
+  margin: 1%;
+  border: solid 0.2vw var(--starterBackground);
+  background-color: var(--blue);
+  color: white;
+}
+
+.button-stat:hover {
+  cursor: pointer;
+  background-color: var(--blueActive);
+}
+
+.button-stat:active {
+  background-color: var(--blueActive);
+  box-shadow: 0 5px var(--starterBackground);
+  transform: translateY(4px);
+}
+
+.button-stat:disabled:active {
+  box-shadow: none;
+  transform: none;
+  background-color: var(--blue);
+}
+
+.button-stat:disabled:hover {
+  box-shadow: none;
+  cursor: default;
+  background-color: var(--blue);
+}
+
+.stat {
+  margin: 2%;
+  text-align: left;
+  border-bottom: solid 1px black;
+}
+
+#stat-revealed {
+  background-color: var(--cardEdge);
+  color: black;
+  border: transparent;
+}
+
+.enemy-stat {
+  text-align: left;
+}
+
+.player-stat {
+  text-align: right;
+}
+
+.stat-and-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+
 .button-card {
   background: none;
   border: none;
   
+}
+
+@keyframes player-success{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 41%; top: 26%; rotate: 5deg;}
+  10% {left: 42%; top: 27%; rotate: 10deg;}
+  15% {left: 43%; top: 28%; rotate: 15deg;}
+  20% {left: 44%; top: 29%; rotate: 20deg;}
+  25% {left: 45%; top: 30%; rotate: 25deg;}
+  30% {left: 46%; top: 31%; rotate: 30deg;}
+  35% {left: 47%; top: 32%; rotate: 35deg;}
+  40% {left: 48%; top: 33%; rotate: 40deg;}
+  45% {left: 49%; top: 34%; rotate: 35deg;}
+  50% {left: 50%; top: 35%; rotate: 30deg;}
+  55% {left: 49%; top: 34%; rotate: 25deg;}
+  60% {left: 48%; top: 33%; rotate: 20deg;}
+  65% {left: 47%; top: 32%; rotate: 15deg;}
+  70% {left: 46%; top: 31%; rotate: 10deg;}
+  75% {left: 45%; top: 30%; rotate: 5deg;}
+  80% {left: 44%; top: 29%; rotate: 0deg;}
+  85% {left: 43%; top: 28%;}
+  90% {left: 42%; top: 27%;}
+  95% {left: 41%; top: 26%;}
+  100% {left: 40%; top: 25%;}
+}
+
+@keyframes player-fail{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 42%; top: 27%; rotate: 10deg;}
+  10% {left: 44%; top: 29%; rotate: 20deg;}
+  15% {left: 46%; top: 31%; rotate: 30deg;}
+  20% {left: 48%; top: 33%; rotate: 40deg;}
+  25% {left: 50%; top: 35%; rotate: 20deg;}
+  30% {left: 48%; top: 33%; rotate: 0deg;}
+  35% {left: 46%; top: 31%; rotate: -20deg;}
+  40% {left: 44%; top: 29%; rotate: -40deg;}
+  45% {left: 42%; top: 27%; rotate: -60deg;}
+  50% {left: 40%; top: 25%; rotate: -80deg;}
+  55% {left: 38%; rotate: -100deg;}
+  60% {left: 36%; rotate: -120deg;}
+  65% {left: 34%; rotate: -140deg;}
+  70% {left: 32%; rotate: -160deg;}
+  75% {left: 30%; rotate: -180deg;}
+  80% {left: 32%;}
+  85% {left: 34%;}
+  90% {left: 36%;}
+  95% {left: 38%;}
+  100% {left: 40%;}
+}
+
+@keyframes enemy-fail{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 38%; top: 27%; rotate: -10deg;}
+  10% {left: 36%; top: 29%; rotate: -20deg;}
+  15% {left: 34%; top: 31%; rotate: -30deg;}
+  20% {left: 32%; top: 33%; rotate: -40deg;}
+  25% {left: 30%; top: 35%; rotate: -20deg;}
+  30% {left: 32%; top: 33%; rotate: 0deg;}
+  35% {left: 34%; top: 31%; rotate: 20deg;}
+  40% {left: 36%; top: 29%; rotate: 40deg;}
+  45% {left: 38%; top: 27%; rotate: 60deg;}
+  50% {left: 40%; top: 25%; rotate: 80deg;}
+  55% {left: 42%; rotate: 100deg;}
+  60% {left: 44%; rotate: 120deg;}
+  65% {left: 46%; rotate: 140deg;}
+  70% {left: 48%; rotate: 160deg;}
+  75% {left: 50%; rotate: 180deg;}
+  80% {left: 48%;}
+  85% {left: 46%;}
+  90% {left: 44%;}
+  95% {left: 42%;}
+  100% {left: 40%;}
+}
+
+@keyframes draw{
+  0% {left: 40%;}
+  5% {left: 41%;}
+  10% {left: 40%;}
+  15% {left: 39%;}
+  20% {left: 40%;}
+  25% {left: 41%;}
+  30% {left: 40%;}
+  35% {left: 39%;}
+  40% {left: 40%;}
+  45% {left: 41%;}
+  50% {left: 40%;}
+  55% {left: 39%;}
+  60% {left: 40%;}
+  65% {left: 41%;}
+  70% {left: 40%;}
+  75% {left: 39%;}
+  80% {left: 40%;}
+  85% {left: 41%;}
+  90% {left: 40%;}
+  95% {left: 39%;}
+  100% {left: 40%;}
+}
+
+@keyframes enemy-success{
+  0% {left: 40%; top: 25%; rotate: 0deg;}
+  5% {left: 39%; top: 26%; rotate: -5deg;}
+  10% {left: 38%; top: 27%; rotate: -10deg;}
+  15% {left: 37%; top: 28%; rotate: -15deg;}
+  20% {left: 36%; top: 29%; rotate: -20deg;}
+  25% {left: 35%; top: 30%; rotate: -25deg;}
+  30% {left: 34%; top: 31%; rotate: -30deg;}
+  35% {left: 33%; top: 32%; rotate: -35deg;}
+  40% {left: 32%; top: 33%; rotate: -40deg;}
+  45% {left: 31%; top: 34%; rotate: -35deg;}
+  50% {left: 30%; top: 35%; rotate: -30deg;}
+  55% {left: 31%; top: 34%; rotate: -25deg;}
+  60% {left: 32%; top: 33%; rotate: -20deg;}
+  65% {left: 33%; top: 32%; rotate: -15deg;}
+  70% {left: 34%; top: 31%; rotate: -10deg;}
+  75% {left: 35%; top: 30%; rotate: -5deg;}
+  80% {left: 35%; top: 29%; rotate: -0deg;}
+  85% {left: 37%; top: 28%;}
+  90% {left: 38%; top: 27%;}
+  95% {left: 39%; top: 26%;}
+  100% {left: 40%; top: 25%;}
+}
+
+.winning-result {
+  position: absolute;
+  width: 300px;
+}
+
+.player-attack-successful {
+  position: absolute;
+  animation: player-success 0.5s;
+}
+
+.draw {
+  position: absolute;
+  animation: draw 1s;
+}
+
+.player-attack-unsuccessful {
+  position: absolute;
+  animation: player-fail 1s;
+}
+
+.enemy-attack-successful {
+  position: absolute;
+  animation: enemy-success 0.5s;
+}
+
+.enemy-attack-unsuccessful {
+  position: absolute;
+  animation: enemy-fail 1s;
+}
+
+.no-attack {
+  position: absolute;
 }
 
 .page-in-half {
@@ -165,7 +491,6 @@ a {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-
 }
 
 .card-large {
@@ -176,7 +501,19 @@ a {
   width: 16vw;
   padding: 5%;
   padding-top: 0;
+  padding-bottom: 0;
 
+}
+
+.card-medium {
+  border: solid 0.4vw var(--cardEdge);
+  outline: 0.1vw solid var(--gold);
+  outline-offset: -0.4vw;
+  margin: 5px;
+  width: 14vw;
+  padding: 3%;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .card-small {
@@ -188,7 +525,7 @@ a {
   padding: 1%;
 }
 
-.card:hover, .image-overlay-container:hover {
+.card-large:hover, .card-small:hover, .image-overlay-container:hover {
   box-shadow: 0 8px 16px 8px rgb(255, 231, 143);
 }
 
@@ -203,6 +540,12 @@ a {
   margin: 10px;
 }
 
+.card-medium .name {
+  letter-spacing: 2px;
+  padding: 0px;
+  margin: 6px;
+}
+
 .card-small .name {
   font-size: large;
   letter-spacing: 1px;
@@ -212,11 +555,22 @@ a {
 
 .card .sprite {
   display: flex;
+  
+}
+
+.card .sprite-container {
+  display: flex;
+  justify-content: center;
 }
 
 .card-large .sprite {
   width: 15vw;
   border: solid 0.6vw var(--cardEdge);
+}
+
+.card-medium .sprite {
+  width: 12vw;
+  border: solid 0.3vw var(--cardEdge);
 }
 
 .card-small .sprite {
@@ -232,23 +586,6 @@ button {
   border-radius: 6px;
 }
 
-button:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.button-stat:disabled {
-  cursor: default;
-  font-weight: normal;
-}
-
-.button-stat {
-  background: transparent;
-  border: none;
-  text-align: left;
-  border-bottom: solid black;
-}
-
 .button-card:disabled{
   cursor: default;
   opacity: 0.3;
@@ -259,13 +596,6 @@ button:hover {
   border: none;
 }
 
-.stat-button-clicked {
-  color: black;
-  background-color: var(--green);
-  border: solid var(--blue);
-  text-align: left;
-  border-bottom: solid black;
-}
 
 /* Button Groups */
 
@@ -316,6 +646,25 @@ button:hover {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.second-horizontal-container {
+  flex: 0.3;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.third-horizontal-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .image-overlay-container {
@@ -405,5 +754,4 @@ button:hover {
   background-image: linear-gradient(to bottom right, #97dfe7,#91cee8,#7ce3fd,#36d4fc,#91d7e8,#56b8dc);
   .sprite {background-image: url('../public/images/water-background.jpg');}
 }
-
 
