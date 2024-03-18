@@ -95,9 +95,9 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         }
     }, [playerTurn])
 
-    const checkAnimation = () => {
+    const checkVSAnimation = () => {
         if (wonRound === "player" && playerTurn === false){
-            return "player-attack-successful"
+            return "vs-player-success"
         } else if (wonRound === "computer" && playerTurn === false){
             return "player-attack-unsuccessful"
         } else if (wonRound === 'draw'){
@@ -112,12 +112,48 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         }
     }
 
+    
+    const checkCardAnimation = (card: string) => {
+        if (card === "player"){
+            if (wonRound === "player" && playerTurn === false){
+                return "player-fire-attack"
+            } else if (wonRound === "computer" && playerTurn === false){
+                return "long-card-shake"
+            } else if (wonRound === 'draw'){
+                return ""
+            } else if (wonRound === "computer"){
+                return "short-card-shake"
+            } else if (wonRound === "player"){
+                return ""
+            } 
+            else {
+                return ""
+            }
+        } else if (card === "computer"){
+            if (wonRound === "player" && playerTurn === false){
+                return "hit-by-enemy"
+            } else if (wonRound === "computer" && playerTurn === false){
+                return ""
+            } else if (wonRound === 'draw'){
+                return ""
+            } else if (wonRound === "computer"){
+                return "enemy-fire-attack"
+            } else if (wonRound === "player"){
+                return "long-card-shake"
+            } 
+            else {
+                return ""
+            }  
+        }
+        }
+
+
 
     return (
         <div>
             <div className = "horizontal-container">
 
-                <Button variant = 'card'>
+                <Button variant = 'card' className = {checkCardAnimation("player")}>
                     <CardContainer pokemon = {playerPokemon} size = "medium">
                         <Name pokemon = {playerPokemon}/>
                         <Sprite pokemon = {playerPokemon}/>
@@ -126,11 +162,11 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 </Button>
 
                         <div key = {playerTurnString} className = "vertical-container">
-                            {!gameOver && <img className = {checkAnimation()} src = "../images/vs.png"></img>}
+                            {!gameOver && <img className = {checkVSAnimation()} src = "../images/vs.png"></img>}
                             {gameOver && <img src = {playerScore > computerScore ? '../images/win.png' : '../images/lose.png'} className = "winning-result"></img>}
                         </div>
                         
-                <Button variant = 'card'>
+                <Button variant = 'card' className = {checkCardAnimation("computer")} >
                     <CardContainer pokemon = {enemyPokemon} size = "medium">
                         <Name pokemon = {enemyPokemon}/>
                         <Sprite pokemon = {enemyPokemon}/>
