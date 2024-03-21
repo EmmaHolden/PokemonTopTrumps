@@ -66,13 +66,14 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     }
 
     const computerTurn = () => {
-        setTimeout(() => {
+        const turnTimeOut = setTimeout(() => {
             const entries = Object.entries(arrayStats);
             let availableStats = entries.filter(([key, value]) => value === "unselected");
             console.log(availableStats.length)
             let index = getRanNum(0, availableStats.length - 1)
             checkStats(availableStats[index][0])
         }, 3000);
+        return () => clearTimeout(turnTimeOut);
     }
 
 
