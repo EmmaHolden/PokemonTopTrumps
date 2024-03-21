@@ -81,18 +81,21 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         let availableStats = entries.filter(([key, value]) => value === "unselected");
         if (playerScore > 2 || computerScore > 2 || availableStats.length < 1){
             if (playerTurn === false){
-            setTimeout(() => {
+            const immediateGameOver = setTimeout(() => {
                 setGameOver(true)
             }, 1000);
+            return () => clearTimeout(immediateGameOver);
         } else {
             setIsDisabled(true)
-            setTimeout(() => {
+            const gameOver = setTimeout(() => {
                 setGameOver(true)
             }, 1000);
+            return () => clearTimeout(gameOver);
         }
         } else if (playerTurn === false){
             computerTurn()
         }
+        
     }, [playerTurn])
 
     const checkVSAnimation = () => {
