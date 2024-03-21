@@ -99,13 +99,13 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         if (wonRound === "player" && playerTurn === false){
             return "vs-player-success"
         } else if (wonRound === "computer" && playerTurn === false){
-            return "player-attack-unsuccessful"
+            return "vs-player-fail"
         } else if (wonRound === 'draw'){
-            return "draw"
+            return "vs-draw"
         } else if (wonRound === "computer"){
-            return "enemy-attack-successful"
+            return "vs-computer-success"
         } else if (wonRound === "player"){
-            return "enemy-attack-unsuccessful"
+            return "vs-computer-fail"
         } 
         else {
             return "no-attack"
@@ -116,13 +116,13 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const checkCardAnimation = (card: string) => {
         if (card === "player"){
             if (wonRound === "player" && playerTurn === false){
-                return "player-fire-attack"
+                return "player-card-attack-success"
             } else if (wonRound === "computer" && playerTurn === false){
-                return "long-card-shake"
+                return "player-card-attack-fail"
             } else if (wonRound === 'draw'){
                 return ""
             } else if (wonRound === "computer"){
-                return "short-card-shake"
+                return "card-hit-by-enemy"
             } else if (wonRound === "player"){
                 return ""
             } 
@@ -131,15 +131,15 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
             }
         } else if (card === "computer"){
             if (wonRound === "player" && playerTurn === false){
-                return "hit-by-enemy"
+                return "card-hit-by-enemy"
             } else if (wonRound === "computer" && playerTurn === false){
                 return ""
             } else if (wonRound === 'draw'){
                 return ""
             } else if (wonRound === "computer"){
-                return "enemy-fire-attack"
+                return "computer-card-attack-success"
             } else if (wonRound === "player"){
-                return "long-card-shake"
+                return "computer-card-attack-fail"
             } 
             else {
                 return ""
