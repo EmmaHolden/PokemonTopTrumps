@@ -1,8 +1,10 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, MouseEventHandler, ReactNode, useState } from 'react';
+import { Pokemon } from '../pokemonList';
 
 interface ModalProps {
     id?: string;
+    selectedPokemon?: Pokemon
     title?: string;
     isOpen?: boolean;
     children?: ReactNode | ReactNode[];
