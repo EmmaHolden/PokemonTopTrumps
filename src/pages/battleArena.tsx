@@ -26,7 +26,7 @@ const WildBattle = () => {
     // Magikarp, Poliwag, Goldeen, Tentacool, Shellder, Horsea, Staryu
     const cinnabarIslandPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 129 || pokemon.id === 60 || pokemon.id === 118 || pokemon.id === 72 || pokemon.id === 90 || pokemon.id === 116 || pokemon.id === 120)
 
-    
+
     const shuffle = (array: Pokemon[]) => { 
         for (let i = array.length - 1; i > 0; i--) { 
           const j = Math.floor(Math.random() * (i + 1)); 
@@ -62,7 +62,7 @@ const WildBattle = () => {
 
     return ( 
         <div>
-            <Battle enemyPokemon = {shuffledEnemies[0]} playerPokemon = {activeDeck[0]}/>
+            <Battle enemyPokemon = {shuffledEnemies[0]} playerPokemon = {activeDeck}/>
         </div>
      );
 }

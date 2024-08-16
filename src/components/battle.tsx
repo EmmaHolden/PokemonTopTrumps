@@ -17,7 +17,7 @@ export type statObj = {
 
 interface BattleProps {
     enemyPokemon: Pokemon;
-    playerPokemon: Pokemon;
+    playerPokemon: Pokemon[];
 }
 
 const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
@@ -29,6 +29,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     const [playerScore, setPlayerScore] = useState(0)
     const [computerScore, setComputerScore] = useState(0)
     const [gameOver, setGameOver] = useState(false)
+    let currentPlayerPokemon = playerPokemon[0];
 
     const getRanNum = (min: number, max: number) => {
         return Math.floor(Math.random() * (max - min + 1) + min)
@@ -41,9 +42,25 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
         setPlayerTurn(newPlayerTurn)
     }
 
+    function endGame() {
+        if (playerTurn === false){
+            const immediateGameOver = setTimeout(() => {
+                setGameOver(true)
+            }, 1000);
+            return () => clearTimeout(immediateGameOver);
+        } else {
+            setIsDisabled(true)
+            const gameOver = setTimeout(() => {
+                setGameOver(true)
+            }, 1000);
+            return () => clearTimeout(gameOver);
+        }
+
+    }
+
     const checkStats = (stat: string) => {
         let newRemainingStats = arrayStats
-        let playerStat = playerPokemon[stat as keyof Pokemon]
+        let playerStat = currentPlayerPokemon[stat as keyof Pokemon]
         let computerStat = enemyPokemon[stat as keyof Pokemon]
         if (playerStat > computerStat){
             setWonRound("player")
@@ -80,19 +97,22 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     useEffect(() => {
         const entries = Object.entries(arrayStats);
         let availableStats = entries.filter(([key, value]) => value === "unselected");
-        if (playerScore > 2 || computerScore > 2 || availableStats.length < 1){
-            if (playerTurn === false){
-            const immediateGameOver = setTimeout(() => {
-                setGameOver(true)
-            }, 1000);
-            return () => clearTimeout(immediateGameOver);
-        } else {
-            setIsDisabled(true)
-            const gameOver = setTimeout(() => {
-                setGameOver(true)
-            }, 1000);
-            return () => clearTimeout(gameOver);
-        }
+        if (playerScore > 2){
+           endGame()
+        } else if (computerScore > 2 || availableStats.length < 1){
+            if (playerPokemon.length > 1){
+                    setPlayerTurn(true)
+                    setPlayerTurnString("true")
+                    const drawNewPokemon = setTimeout(() => {
+                        playerPokemon.shift();
+                        setComputerScore(0)
+                        setPlayerScore(0)
+                        currentPlayerPokemon = playerPokemon[0];
+                        let newArrayStats = {"hp": "unselected", "attack": "unselected", "defense": "unselected", "specialAttack": "unselected", "specialDefense": "unselected", "speed": "unselected"};
+                        setArrayStats(newArrayStats);
+                    }, 1000);                    
+                    return () => clearTimeout(drawNewPokemon);
+            } else {endGame()}
         } else if (playerTurn === false){
             computerTurn()
         }
@@ -100,18 +120,13 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     }, [playerTurn])
 
     const checkVSAnimation = () => {
-        if (wonRound === "player" && playerTurn === false){
+        if (wonRound === "player"){
             return "vs-player-success"
-        } else if (wonRound === "computer" && playerTurn === false){
-            return "vs-player-fail"
         } else if (wonRound === 'draw'){
             return "vs-draw"
         } else if (wonRound === "computer"){
             return "vs-computer-success"
-        } else if (wonRound === "player"){
-            return "vs-computer-fail"
-        } 
-        else {
+        } else {
             return "no-attack"
         }
     }
@@ -119,33 +134,19 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
     
     const checkCardAnimation = (card: string) => {
         if (card === "player"){
-            if (wonRound === "player" && playerTurn === false){
+            if (wonRound === "player"){
                 return "player-card-attack-success"
-            } else if (wonRound === "computer" && playerTurn === false){
-                return "player-card-attack-fail"
-            } else if (wonRound === 'draw'){
-                return ""
             } else if (wonRound === "computer"){
                 return "card-hit-by-enemy"
-            } else if (wonRound === "player"){
-                return ""
-            } 
-            else {
+            } else {
                 return ""
             }
         } else if (card === "computer"){
-            if (wonRound === "player" && playerTurn === false){
+            if (wonRound === "player"){
                 return "card-hit-by-enemy"
-            } else if (wonRound === "computer" && playerTurn === false){
-                return ""
-            } else if (wonRound === 'draw'){
-                return ""
             } else if (wonRound === "computer"){
                 return "computer-card-attack-success"
-            } else if (wonRound === "player"){
-                return "computer-card-attack-fail"
-            } 
-            else {
+            } else {
                 return ""
             }  
         }
@@ -158,10 +159,10 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
             <div className = "horizontal-container">
 
                 <Button variant = 'card' className = {checkCardAnimation("player")}>
-                    <CardContainer pokemon = {playerPokemon} size = "medium">
-                        <Name pokemon = {playerPokemon}/>
-                        <Sprite pokemon = {playerPokemon}/>
-                        <InteractiveStats gameOver = {gameOver} pokemon = {playerPokemon} handleClick = {checkStats} arrayStats = {arrayStats} isDisabled = {isDisabled} playerTurn = {playerTurn} variant = "player"/>
+                    <CardContainer pokemon = {currentPlayerPokemon} size = "medium">
+                        <Name pokemon = {currentPlayerPokemon}/>
+                        <Sprite pokemon = {currentPlayerPokemon}/>
+                        <InteractiveStats gameOver = {gameOver} pokemon = {currentPlayerPokemon} handleClick = {checkStats} arrayStats = {arrayStats} isDisabled = {isDisabled} playerTurn = {playerTurn} variant = "player"/>
                     </CardContainer>
                 </Button>
 
@@ -179,7 +180,7 @@ const Battle = ({enemyPokemon, playerPokemon}: BattleProps) => {
                 </Button>
             </div>
             <div className = "horizontal-container margin-top-ten">
-                {!gameOver && <div className = "third-horizontal-container"><img className = {!playerTurn ? "rotating-pokeball paused" : "rotating-pokeball"} style = {{width: 100}} src = "../images/pokeballball.png"></img><p className = {!playerTurn ? "turn-invisible" : "turn-visible"}>{`${playerPokemon.name}'s turn`}</p></div>}
+                {!gameOver && <div className = "third-horizontal-container"><img className = {!playerTurn ? "rotating-pokeball paused" : "rotating-pokeball"} style = {{width: 100}} src = "../images/pokeballball.png"></img><p className = {!playerTurn ? "turn-invisible" : "turn-visible"}>{`${currentPlayerPokemon.name}'s turn`}</p></div>}
                 <div className = "second-horizontal-container"><img style = {{height: 100}} src = {`../images/number${playerScore}.png`}></img><img style = {{height: 100}} src = "../images/dash.png"></img><img style = {{height: 100}} src = {`../images/number${computerScore}.png`}></img></div>
                 {!gameOver && <div className = "third-horizontal-container"><p className = {playerTurn ? "turn-invisible" : "turn-visible"}>{`${enemyPokemon.name}'s turn`}</p><img className = {playerTurn ? "rotating-pokeball paused" : "rotating-pokeball"} style = {{width: 100}} src = "../images/pokeballball.png"></img></div>}
             </div>
