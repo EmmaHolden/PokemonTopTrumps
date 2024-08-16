@@ -8,6 +8,7 @@ import ChooseStarter from "./pages/chooseStarter";
 import Explore from "./pages/explore";
 import Battle from "./pages/battleGymLeader";
 import ChooseDeck from "./pages/chooseDeck";
+import WildBattle from "./pages/battleArena";
 
 function App() {
     console.log(`VERSION: ${packageJson.version}.${process.env.REACT_APP_BUILD_NUM}`);
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/explore-wild' element={starterChosen ? <Explore/> : <Navigate to="/" replace />}/>
                     <Route path='/choose-pokemon-team' element={starterChosen ? <ChooseDeck/> : <Navigate to="/" replace />}/>
                     <Route path='/battle-gym-leader' element={starterChosen ? <Battle/> : <Navigate to="/" replace />}/>
+                    <Route path='/battle-arena/:location' element={starterChosen ? <WildBattle/> : <Navigate to="/" replace />}/>
                     <Route path='*' element={<Navigate to="/" replace />}/>
                 </Routes>
         </BrowserRouter>

@@ -173,9 +173,6 @@ export const starterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id
 // Mankey, Rattata, Pidgey, Nidoran-M, Nidoran-F
 export const routeOnePokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 16 || pokemon.id === 19 || pokemon.id === 56 || pokemon.id === 29 || pokemon.id === 32)
 
-// Caterpie, Weedle, Metapod, Kakuna, Pikachu
-export const viridianForestPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 10 || pokemon.id === 11 || pokemon.id === 13 || pokemon.id === 14 || pokemon.id === 25 || pokemon.id === 16)
-
 // Butterfree, Beedrill, Ekans
 export const routeTwoPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 12 || pokemon.id === 15 || pokemon.id === 23)
 
@@ -186,9 +183,6 @@ export const pewterPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id 
 export const routeThreeFourPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 19 || pokemon.id === 21 || pokemon.id === 27 || pokemon.id === 56)
 
 // Pokemon Centre - If got five pokemon, gift Magikarp (129)
-
-// Zubat, Geodude, Sandshrew, Clefairy, Paras
-export const mtMoonPokemon: Pokemon[] = allPokemon.filter(pokemon => pokemon.id === 41 || pokemon.id === 74 || pokemon.id === 27 || pokemon.id === 35 || pokemon.id === 46)
 
 // Pokemon Centre - If got ten pokemon, gift Bulbasaur/Charmander/Squirtle
 
