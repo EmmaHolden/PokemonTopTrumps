@@ -28,15 +28,15 @@
   0% {transform: rotate(0deg);}
   5% {transform: rotate(-10deg);}
   10% {transform: rotate(-20deg);}
-  15% {transform: rotate(-10deg);}
-  20% {transform: rotate(0deg);}
-  25% {transform: rotate(10deg);}
-  30% {transform: rotate(20deg);}
-  35% {transform: rotate(20deg);}
+  15% {transform: rotate(-20deg);}
+  20% {transform: rotate(-20deg);}
+  25% {transform: rotate(-20deg);}
+  30% {transform: rotate(-10deg);}
+  35% {transform: rotate(0deg);}
   40% {transform: rotate(10deg);}
-  45% {transform: rotate(0deg);}
-  50% {transform: rotate(0deg);}
-  55% {transform: rotate(0deg);}
+  45% {transform: rotate(20deg);}
+  50% {transform: rotate(20deg);}
+  55% {transform: rotate(10deg);}
   60% {transform: rotate(0deg);}
   65% {transform: rotate(0deg);}
   70% {transform: rotate(0deg);}
@@ -54,143 +54,143 @@
   100% {transform: rotate(-4deg); box-shadow: none;}
 }
 
+@keyframes vs-player-fail {
+  0% {left: 40%; top: 25%; rotate: 0deg; width: 300px;}
+  2% {left: 39%; top: 25%; rotate: -2deg; width: 280px;}
+  4% {left: 38%; top: 25%; rotate: -5deg; width: 260px;}
+  6% {left: 37%; top: 25%; rotate: -7deg; width: 240px;}
+  8% {left: 36%; top: 25%; rotate: -9deg; width: 230px;}
+  10% {left: 35%; top: 25%; rotate: -11deg; width: 220px;}
+  12% {left: 34%; top: 25%; rotate: -13deg; width: 210px;}
+  14% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
+  16% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
+  18% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
+  20% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
+  22% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
+  24% {left: 33%; top: 25%; rotate: -15deg; width: 220px;}
+  26% {left: 34%; top: 24%; rotate: -13deg; width: 240px;}
+  28% {left: 35%; top: 22%; rotate: -11deg; width: 250px;}
+  30% {left: 36%; top: 20%; rotate: -9deg; width: 260px;}
+  32% {left: 37%; top: 18%; rotate: -6deg; width: 270px;}
+  34% {left: 38%; top: 16%; rotate: -4deg; width: 280px;}
+  36% {left: 39%; top: 14%; rotate: -2deg; width: 290px;}
+  38% {left: 40%; top: 12%; rotate: 0deg; width: 300px;}
+  40% {left: 41%; top: 10%; rotate: 10deg; width: 300px;}
+  42% {left: 42%; top: 12%; rotate: 20deg;}
+  44% {left: 43%; top: 14%; rotate: 30deg;}
+  46% {left: 44%; top: 16%; rotate: 40deg;} 
+  48% {left: 45%; top: 18%; rotate: 50deg;}
+  50% {left: 46%; top: 20%; rotate: 60deg;}
+  52% {left: 47%; top: 22%; rotate: 70deg;}
+  54% {left: 48%; top: 24%; rotate: 80deg;}
+  56% {left: 48%; top: 25%; rotate: 90deg;}
+  58% {left: 48%; top: 26%; rotate: 100deg;}
+  60% {left: 48%; top: 28%; rotate: 120deg;}
+  62% {left: 47%; top: 30%; rotate: 130deg;}
+  64% {left: 46%; top: 32%; rotate: 140deg;}
+  66% {left: 45%; top: 34%; rotate: 150deg;}
+  68% {left: 44%; top: 36%; rotate: 160deg;}
+  70% {left: 43%; top: 38%; rotate: 170deg;}
+  72% {left: 42%; top: 40%; rotate: 180deg;}
+  74% {left: 41%; top: 38%; rotate: 190deg;}
+  76% {left: 40%; top: 37%; rotate: 200deg;}
+  78% {left: 39%; top: 36%; rotate: 210deg;}
+  80% {left: 38%; top: 35%; rotate: 220deg;}
+  82% {left: 37%; top: 34%; rotate: 240deg;}
+  84% {left: 36%; top: 33%; rotate: 260deg;}
+  86% {left: 35%; top: 32%; rotate: 280deg;}
+  88% {left: 34%; top: 31%; rotate: 300deg;}
+  90% {left: 35%; top: 30%; rotate: 310deg;}
+  92% {left: 36%; top: 29%; rotate: 320deg;}
+  94% {left: 37%; top: 28%; rotate: 330deg;}
+  96% {left: 38%; top: 27%; rotate: 340deg;}
+  98% {left: 39%; top: 26%; rotate: 350deg;}
+  100% {left: 40%; top: 25%; rotate: 360deg;}
+}
+
+
 @keyframes computer-card-attack-fail {
   0% {transform: rotate(0deg);}
   5% {transform: rotate(10deg);}
   10% {transform: rotate(20deg);}
-  15% {transform: rotate(10deg);}
-  20% {transform: rotate(0deg);}
-  25% {transform: rotate(-10deg);}
-  30% {transform: rotate(-20deg);}
-  35% {transform: rotate(-20deg);}
+  15% {transform: rotate(20deg);}
+  20% {transform: rotate(20deg);}
+  25% {transform: rotate(20deg);}
+  30% {transform: rotate(10deg);}
+  35% {transform: rotate(0deg);}
   40% {transform: rotate(-10deg);}
-  45% {transform: rotate(0deg);}
-  50% {transform: rotate(0deg);}
-  55% {transform: rotate(0deg);}
+  45% {transform: rotate(-20deg);}
+  50% {transform: rotate(-20deg);}
+  55% {transform: rotate(-10deg);}
   60% {transform: rotate(0deg);}
   65% {transform: rotate(0deg);}
   70% {transform: rotate(0deg);}
   75% {transform: rotate(0deg);}
   80% {transform: rotate(0deg); box-shadow: none;}
-  82% {transform: rotate(-2deg); box-shadow: 0px 0px 30px 10px var(--red);}
-  84% {transform: rotate(-4deg); box-shadow: 0px 0px 30px 10px var(--red);}
-  86% {transform: rotate(-2deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  82% {transform: rotate(2deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  84% {transform: rotate(4deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  86% {transform: rotate(2deg); box-shadow: 0px 0px 30px 10px var(--red);}
   88% {transform: rotate(0deg); box-shadow: 0px 0px 30px 10px var(--red)}
-  90% {transform: rotate(2deg); box-shadow: 0px 0px 30px 10px var(--red);}
-  92% {transform: rotate(4deg); box-shadow: 0px 0px 30px 10px var(--red);}
-  94% {transform: rotate(2deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  90% {transform: rotate(-2deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  92% {transform: rotate(-4deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  94% {transform: rotate(-2deg); box-shadow: 0px 0px 30px 10px var(--red);}
   96% {transform: rotate(0deg); box-shadow: 0px 0px 30px 10px var(--red);}
-  98% {transform: rotate(--blueActive); box-shadow: 0px 0px 30px 10px var(--red);}
-  100% {transform: rotate(-4deg); box-shadow: none;}
-}
-
-
-@keyframes vs-player-fail {
-  0% {left: 40%; top: 25%; rotate: 0deg; width: 300px;}
-  2% {left: 38%; top: 25%; rotate: -5deg; width: 260px;}
-  4% {left: 36%; top: 25%; rotate: -10deg; width: 220px;}
-  6% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
-  8% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
-  10% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
-  12% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
-  14% {left: 33%; top: 25%; rotate: -15deg; width: 200px;}
-  16% {left: 33%; top: 25%; rotate: -15deg; width: 220px;}
-  18% {left: 36%; top: 25%; rotate: -10deg; width: 260px;}
-  20% {left: 40%; top: 25%; rotate: -5deg; width: 300px;}
-  22% {left: 43%; top: 25%; rotate: 0deg; width: 300px;}
-  24% {left: 46%; top: 25%; rotate: 10deg; width: 300px;}
-  26% {left: 49%; top: 25%; rotate: 20deg; width: 300px;}
-  28% {left: 52%; top: 25%; rotate: 30deg; width: 300px;}
-  30% {left: 49%; top: 25%; rotate: 30deg; width: 300px;}
-  32% {left: 46%; top: 25%; rotate: 30deg; width: 300px;}
-  34% {left: 49%; top: 25%; rotate: 30deg; width: 300px;}
-  36% {left: 52%; top: 25%; rotate: 30deg; width: 300px;}
-  38% {left: 49%; top: 25%; rotate: 30deg; width: 300px;} 
-  40% {left: 46%; top: 25%; rotate: 30deg; width: 300px;}
-  42% {left: 49%; top: 25%; rotate: 0deg; width: 300px;}
-  44% {left: 52%; top: 26%; rotate: -30deg; width: 280px;}
-  46% {left: 49%; top: 27%; rotate: -60deg; width: 260px;}
-  48% {left: 52%; top: 28%; rotate: -90deg; width: 240px;}
-  50% {left: 47%; top: 30%; rotate: -120deg; width: 240px;}
-  52% {left: 45%; top: 33%; rotate: -150deg; width: 240px;}
-  54% {left: 44%; top: 35%; rotate: -180deg; width: 240px;}
-  56% {left: 43%; top: 37%; rotate: -210deg; width: 240px;}
-  58% {left: 42%; top: 39%; rotate: -240deg; width: 240px;}
-  60% {left: 40%; top: 37%; rotate: -270deg; width: 240px;}
-  62% {left: 38%; top: 35%; rotate: -300deg; width: 240px;}
-  64% {left: 36%; top: 33%; rotate: -330deg; width: 240px;}
-  66% {left: 34%; top: 31%; rotate: -360deg; width: 240px;}
-  68% {left: 32%; top: 29%; rotate: 0deg; width: 240px;}
-  70% {left: 30%; top: 27%; rotate: 0deg; width: 260px;}
-  72% {left: 32%; top: 25%; rotate: 0deg; width: 280px;}
-  74% {left: 34%; rotate: 0deg; width: 300px;}
-  76% {left: 36%; width: 300px;}
-  78% {left: 38%; width: 300px;}
-  80% {left: 40%; width: 300px;}
-  82% {left: 40%; width: 300px;}
-  84% {left: 40%; width: 300px;}
-  86% {left: 40%; width: 300px;}
-  88% {left: 40%; width: 300px;}
-  90% {left: 40%;}
-  92% {left: 40%;}
-  94% {left: 40%;}
-  96% {left: 40%;}
-  98% {left: 40%;}
-  100% {left: 40%;}
+  98% {transform: rotate(2deg); box-shadow: 0px 0px 30px 10px var(--red);}
+  100% {transform: rotate(4deg); box-shadow: none;}
 }
 
 @keyframes vs-computer-fail {
-0% {left: 40%; top: 25%; rotate: 0deg; width: 300px;}
-2% {left: 45%; top: 25%; rotate: 5deg; width: 260px;}
-4% {left: 50%; top: 25%; rotate: 10deg; width: 220px;}
-6% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
-8% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
-10% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
-12% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
-14% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
-16% {left: 54%; top: 25%; rotate: 15deg; width: 220px;}
-18% {left: 50%; top: 25%; rotate: 10deg; width: 260px;}
-20% {left: 46%; top: 25%; rotate: 5deg; width: 300px;}
-22% {left: 42%; top: 25%; rotate: 0deg; width: 300px;}
-24% {left: 38%; top: 25%; rotate: -10deg; width: 300px;}
-26% {left: 34%; top: 25%; rotate: -20deg; width: 300px;}
-28% {left: 30%; top: 25%; rotate: -30deg; width: 300px;}
-30% {left: 33%; top: 25%; rotate: -30deg; width: 300px;}
-32% {left: 36%; top: 25%; rotate: -30deg; width: 300px;}
-34% {left: 33%; top: 25%; rotate: -30deg; width: 300px;}
-36% {left: 30%; top: 25%; rotate: -30deg; width: 300px;}
-38% {left: 33%; top: 25%; rotate: -30deg; width: 300px;} 
-40% {left: 36%; top: 25%; rotate: -30deg; width: 300px;}
-42% {left: 33%; top: 25%; rotate: 0deg; width: 300px;}
-44% {left: 30%; top: 26%; rotate: 30deg; width: 280px;}
-46% {left: 33%; top: 27%; rotate: 60deg; width: 260px;}
-48% {left: 30%; top: 29%; rotate: 90deg; width: 240px;}
-50% {left: 32%; top: 31%; rotate: 120deg; width: 240px;}
-52% {left: 34%; top: 33%; rotate: 150deg; width: 240px;}
-54% {left: 36%; top: 35%; rotate: 180deg; width: 240px;}
-56% {left: 38%; top: 37%; rotate: 210deg; width: 240px;}
-58% {left: 40%; top: 39%; rotate: 240deg; width: 240px;}
-60% {left: 42%; top: 37%; rotate: 270deg; width: 240px;}
-62% {left: 44%; top: 35%; rotate: 300deg; width: 240px;}
-64% {left: 46%; top: 33%; rotate: 330deg; width: 240px;}
-66% {left: 48%; top: 31%; rotate: 360deg; width: 240px;}
-68% {left: 50%; top: 29%; rotate: 0deg; width: 240px;}
-70% {left: 52%; top: 27%; rotate: 0deg; width: 260px;}
-72% {left: 50%; top: 25%; rotate: 0deg; width: 280px;}
-74% {left: 48%; rotate: 0deg; width: 300px;}
-76% {left: 46%; width: 300px;}
-78% {left: 44%; width: 300px;}
-80% {left: 42%; width: 300px;}
-82% {left: 40%; width: 300px;}
-84% {left: 40%; width: 300px;}
-86% {left: 40%; width: 300px;}
-88% {left: 40%; width: 300px;}
-90% {left: 40%;}
-92% {left: 40%;}
-94% {left: 40%;}
-96% {left: 40%;}
-98% {left: 40%;}
-100% {left: 40%;}
+  0% {left: 40%; top: 25%; rotate: 0deg; width: 300px;}
+  2% {left: 42%; top: 25%; rotate: 2deg; width: 280px;}
+  4% {left: 44%; top: 25%; rotate: 5deg; width: 260px;}
+  6% {left: 46%; top: 25%; rotate: 7deg; width: 240px;}
+  8% {left: 48%; top: 25%; rotate: 9deg; width: 230px;}
+  10% {left: 50%; top: 25%; rotate: 11deg; width: 220px;}
+  12% {left: 52%; top: 25%; rotate: 13deg; width: 210px;}
+  14% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
+  16% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
+  18% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
+  20% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
+  22% {left: 54%; top: 25%; rotate: 15deg; width: 200px;}
+  24% {left: 54%; top: 25%; rotate: 15deg; width: 220px;}
+  26% {left: 52%; top: 24%; rotate: 13deg; width: 240px;}
+  28% {left: 50%; top: 22%; rotate: 11deg; width: 250px;}
+  30% {left: 48%; top: 20%; rotate: 9deg; width: 260px;}
+  32% {left: 46%; top: 18%; rotate: 6deg; width: 270px;}
+  34% {left: 44%; top: 16%; rotate: 4deg; width: 280px;}
+  36% {left: 42%; top: 14%; rotate: 2deg; width: 290px;}
+  38% {left: 40%; top: 12%; rotate: 0deg; width: 300px;}
+  40% {left: 39%; top: 10%; rotate: -10deg; width: 300px;}
+  42% {left: 39%; top: 12%; rotate: -20deg;}
+  44% {left: 38%; top: 14%; rotate: -30deg;}
+  46% {left: 38%; top: 16%; rotate: -40deg;} 
+  48% {left: 37%; top: 18%; rotate: -50deg;}
+  50% {left: 37%; top: 20%; rotate: -60deg;}
+  52% {left: 36%; top: 22%; rotate: -70deg;}
+  54% {left: 36%; top: 24%; rotate: -80deg;}
+  56% {left: 35%; top: 25%; rotate: -90deg;}
+  58% {left: 35%; top: 26%; rotate: -100deg;}
+  60% {left: 35%; top: 28%; rotate: -120deg;}
+  62% {left: 36%; top: 30%; rotate: -130deg;}
+  64% {left: 37%; top: 32%; rotate: -140deg;}
+  66% {left: 38%; top: 34%; rotate: -150deg;}
+  68% {left: 39%; top: 36%; rotate: -160deg;}
+  70% {left: 40%; top: 38%; rotate: -170deg;}
+  72% {left: 41%; top: 40%; rotate: -180deg;}
+  74% {left: 42%; top: 38%; rotate: -190deg;}
+  76% {left: 43%; top: 37%; rotate: -200deg;}
+  78% {left: 44%; top: 36%; rotate: -210deg;}
+  80% {left: 46%; top: 35%; rotate: -220deg;}
+  82% {left: 48%; top: 34%; rotate: -240deg;}
+  84% {left: 50%; top: 33%; rotate: -260deg;}
+  86% {left: 52%; top: 32%; rotate: -280deg;}
+  88% {left: 54%; top: 31%; rotate: -300deg;}
+  90% {left: 52%; top: 30%; rotate: -310deg;}
+  92% {left: 50%; top: 29%; rotate: -320deg;}
+  94% {left: 48%; top: 28%; rotate: -330deg;}
+  96% {left: 46%; top: 27%; rotate: -340deg;}
+  98% {left: 43%; top: 26%; rotate: -350deg;}
+  100% {left: 40%; top: 25%; rotate: -360deg;}
 }
 
 
@@ -315,7 +315,7 @@ background-color: blueviolet; opacity: 0.7; */
 }
 
 .player-card-attack-fail {
-  animation: player-card-attack-fail 1.5s;
+  animation: player-card-attack-fail 1s;
 }
 
 .computer-card-attack-success {
@@ -323,7 +323,7 @@ background-color: blueviolet; opacity: 0.7; */
 }
 
 .computer-card-attack-fail {
-  animation: computer-card-attack-fail 1.5s;
+  animation: computer-card-attack-fail 1s;
 }
 
 
@@ -358,14 +358,14 @@ background-color: blueviolet; opacity: 0.7; */
     position: absolute;
     width: 300px;
     border-radius: 50%;
-    animation: vs-player-fail 1.5s;
+    animation: vs-player-fail 1s;
   }
 
   .vs-computer-fail {
     position: absolute;
     width: 300px;
     border-radius: 50%;
-    animation: vs-computer-fail 1.5s;
+    animation: vs-computer-fail 1s;
   }
 
   .no-attack {
